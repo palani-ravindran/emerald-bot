@@ -473,136 +473,133 @@ function Flovatar() {
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-    if let collection = getAccount(user).getCapability(/public/FlovatarCollection).borrow<&{Flovatar.CollectionPublic}>() {
-      let ids = collection.getIDs()
-      let flovatarsData: [Flovatar.FlovatarData] = Flovatar.getFlovatars(address: user)
+    let flovatarsData: [Flovatar.FlovatarData] = Flovatar.getFlovatars(address: user)
 
-      // This checks for at least 1 Flovatar
-      if ids.length > 0 {
-        earnedRoles.append(roleIds[0])
+    // This checks for at least 1 Flovatar
+    if flovatarsData.length > 0 {
+      earnedRoles.append(roleIds[0])
+    }
+              
+    for flovatar in flovatarsData {
+      // ape
+      if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B35H"){
+        earnedRoles.append(roleIds[1])
       }
-                
-      for flovatar in flovatarsData {
-        // ape
-        if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B35H"){
-          earnedRoles.append(roleIds[1])
-        }
 
-        // devil
-        if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B39H"){
-          earnedRoles.append(roleIds[2])
-        }
+      // devil
+      if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B39H"){
+        earnedRoles.append(roleIds[2])
+      }
 
-        // flotrotter
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
-        if (str == "C84" || str == "C85" || str == "C86"){
-          earnedRoles.append(roleIds[3])
-        }
+      // flotrotter
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
+      if (str == "C84" || str == "C85" || str == "C86"){
+        earnedRoles.append(roleIds[3])
+      }
 
-        // droid
-        let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
-        if (str == "B37H" || str == "B57H" || str == "B58H"){
-          earnedRoles.append(roleIds[4])
-        }
+      // droid
+      let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
+      if (str == "B37H" || str == "B57H" || str == "B58H"){
+        earnedRoles.append(roleIds[4])
+      }
 
-        // racer
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if(str == "C133" || str == "C134" || str == "C135" || str == "C136" || str == "C137"){
-          earnedRoles.append(roleIds[5])
-        }
+      // racer
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if(str == "C133" || str == "C134" || str == "C135" || str == "C136" || str == "C137"){
+        earnedRoles.append(roleIds[5])
+      }
 
-        // cat
-        if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B36H"){
-          earnedRoles.append(roleIds[6])
-        }
+      // cat
+      if (flovatar.metadata.combination.slice(from: 0, upTo: 4) == "B36H"){
+        earnedRoles.append(roleIds[6])
+      }
 
-        // naked
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if(str == "C121"){
-          earnedRoles.append(roleIds[7])
-        }
+      // naked
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if(str == "C121"){
+        earnedRoles.append(roleIds[7])
+      }
 
-        // undead
-        let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
-        if(str == "B40H" || str == "B41H" || str == "B42H" || str == "B72H"){
-          earnedRoles.append(roleIds[8])
-        }
+      // undead
+      let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
+      if(str == "B40H" || str == "B41H" || str == "B42H" || str == "B72H"){
+        earnedRoles.append(roleIds[8])
+      }
 
-        // power
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if(str == "C127" || str == "C128" || str == "C129" || str == "C130" || str == "C131" || str == "C132"){
-          earnedRoles.append(roleIds[9])
-        }
+      // power
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if(str == "C127" || str == "C128" || str == "C129" || str == "C130" || str == "C131" || str == "C132"){
+        earnedRoles.append(roleIds[9])
+      }
 
-        // starbattle
-        let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
-        let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if(str == "B66H" || str2 == "C166" || str2 == "C167" || str2 == "C168"){
-          earnedRoles.append(roleIds[10])
-        }
+      // starbattle
+      let str = flovatar.metadata.combination.slice(from: 0, upTo: 4)
+      let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if(str == "B66H" || str2 == "C166" || str2 == "C167" || str2 == "C168"){
+        earnedRoles.append(roleIds[10])
+      }
 
-        // suit
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
-        let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if (str == "C90" || str2 == "C173" || str2 == "C174" || str2 == "C175" || str2 == "C176" || str2 == "C177" || str2 == "C178" || str2 == "C179" || str2 == "C180"){
-          earnedRoles.append(roleIds[11])
-        }
+      // suit
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
+      let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if (str == "C90" || str2 == "C173" || str2 == "C174" || str2 == "C175" || str2 == "C176" || str2 == "C177" || str2 == "C178" || str2 == "C179" || str2 == "C180"){
+        earnedRoles.append(roleIds[11])
+      }
 
-        // girlpower
-        let str = flovatar.metadata.combination.slice(from: 3, upTo: 7)
-        let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if (
-            (str2 == "C100" || str2 == "C101" || str2 == "C145" || str2 == "C115" || str2 == "C116" || str2 == "C204" || str2 == "C189")
-            &&
-            (str == "H295" || str == "H296" || str == "H297" || str == "H298" || str == "H299" || str == "H300" || str == "H334" || str == "H335" || str == "H336" || str == "H337" || str == "H338" || str == "H339" || str == "H371" || str == "H372" || str == "H373" || str == "H331" || str == "H332" || str == "H333" || str == "H356" || str == "H357" || str == "H358" || str == "H383" || str == "H384" || str == "H385" || str == "H386")
-           ) {
-          earnedRoles.append(roleIds[12])
-        }
+      // girlpower
+      let str = flovatar.metadata.combination.slice(from: 3, upTo: 7)
+      let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if (
+          (str2 == "C100" || str2 == "C101" || str2 == "C145" || str2 == "C115" || str2 == "C116" || str2 == "C204" || str2 == "C189")
+          &&
+          (str == "H295" || str == "H296" || str == "H297" || str == "H298" || str == "H299" || str == "H300" || str == "H334" || str == "H335" || str == "H336" || str == "H337" || str == "H338" || str == "H339" || str == "H371" || str == "H372" || str == "H373" || str == "H331" || str == "H332" || str == "H333" || str == "H356" || str == "H357" || str == "H358" || str == "H383" || str == "H384" || str == "H385" || str == "H386")
+          ) {
+        earnedRoles.append(roleIds[12])
+      }
 
-        // stoner
-        let accessoryId: UInt64 = flovatar.accessoryId ?? 0
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(8), upTo: flovatar.metadata.combination.length - Int(4))
-        let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(7), upTo: flovatar.metadata.combination.length - Int(3))
-        if (str == "M444" || str2 == "M444" || str == "M443" || str2 == "M443" || accessoryId == UInt64(15)){
-          earnedRoles.append(roleIds[13])
-        }
+      // stoner
+      let accessoryId: UInt64 = flovatar.accessoryId ?? 0
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(8), upTo: flovatar.metadata.combination.length - Int(4))
+      let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(7), upTo: flovatar.metadata.combination.length - Int(3))
+      if (str == "M444" || str2 == "M444" || str == "M443" || str2 == "M443" || accessoryId == UInt64(15)){
+        earnedRoles.append(roleIds[13])
+      }
 
-        // mustache
-        let str = flovatar.metadata.combination.slice(from: 7, upTo: 9)
-        if(str != "Fx"){
-          earnedRoles.append(roleIds[14])
-        }
+      // mustache
+      let str = flovatar.metadata.combination.slice(from: 7, upTo: 9)
+      if(str != "Fx"){
+        earnedRoles.append(roleIds[14])
+      }
 
-        // first100
-        if (flovatar.id <= UInt64(100)){
-          earnedRoles.append(roleIds[15])
-        }
+      // first100
+      if (flovatar.id <= UInt64(100)){
+        earnedRoles.append(roleIds[15])
+      }
 
-        // astronaut
-        let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if(str == "C158" || str == "C159" || str == "C160" || str == "C161" || str == "C162" || str == "C163" || str == "C164" || str == "C165"){
-          earnedRoles.append(roleIds[16])
-        }
+      // astronaut
+      let str = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if(str == "C158" || str == "C159" || str == "C160" || str == "C161" || str == "C162" || str == "C163" || str == "C164" || str == "C165"){
+        earnedRoles.append(roleIds[16])
+      }
 
-        // legendary
-        if(flovatar.metadata.legendaryCount > UInt8(0)){
-          earnedRoles.append(roleIds[17])
-        }
+      // legendary
+      if(flovatar.metadata.legendaryCount > UInt8(0)){
+        earnedRoles.append(roleIds[17])
+      }
 
-        // gray
-        let strB = flovatar.metadata.combination.slice(from: 0, upTo: 3)
-        let strH = flovatar.metadata.combination.slice(from: 3, upTo: 7)
-        let strC = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
-        let strC2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
-        if (
-            (strB == "B47" || strB == "B67" || strB == "B36" || strB == "B71" || str == "B58")
-            &&
-            (strC == "C81" || strC == "C83" || strC == "C92" || strC == "C93" || strC == "C95" || strC == "C76" || strC == "C78" || strC2 == "C101" || strC2 == "C151" || strC2 == "C207" || strC2 == "C211" || strC2 == "C102" || strC2 == "C115" || strC2 == "C138" || strC2 == "C155" || strC2 == "C171" || strC2 == "C197" || strC2 == "C121" || strC2 == "C122" || strC2 == "C124" || strC2 == "C127" || strC2 == "C167" || strC2 == "C181")
-            &&
-            (strH == "H288" || strH == "H289" || strH == "H295" || strH == "H296" || strH == "H301" || strH == "H303" || strH == "H307" || strH == "H313" || strH == "H316" || strH == "H319" || strH == "H334" || strH == "H359" || strH == "H367" || strH == "H371" || strH == "H381" || strH == "H291" || strH == "H293" || strH == "H323" || strH == "H348" || strH == "H352" || strH == "H384" || strH == "H290" || strH == "H327" || strH == "H329" || strH == "H340" || strH == "H341")
-           ) {
-          earnedRoles.append(roleIds[18])
-        }
+      // gray
+      let strB = flovatar.metadata.combination.slice(from: 0, upTo: 3)
+      let strH = flovatar.metadata.combination.slice(from: 3, upTo: 7)
+      let strC = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(3), upTo: flovatar.metadata.combination.length)
+      let strC2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
+      if (
+          (strB == "B47" || strB == "B67" || strB == "B36" || strB == "B71" || str == "B58")
+          &&
+          (strC == "C81" || strC == "C83" || strC == "C92" || strC == "C93" || strC == "C95" || strC == "C76" || strC == "C78" || strC2 == "C101" || strC2 == "C151" || strC2 == "C207" || strC2 == "C211" || strC2 == "C102" || strC2 == "C115" || strC2 == "C138" || strC2 == "C155" || strC2 == "C171" || strC2 == "C197" || strC2 == "C121" || strC2 == "C122" || strC2 == "C124" || strC2 == "C127" || strC2 == "C167" || strC2 == "C181")
+          &&
+          (strH == "H288" || strH == "H289" || strH == "H295" || strH == "H296" || strH == "H301" || strH == "H303" || strH == "H307" || strH == "H313" || strH == "H316" || strH == "H319" || strH == "H334" || strH == "H359" || strH == "H367" || strH == "H371" || strH == "H381" || strH == "H291" || strH == "H293" || strH == "H323" || strH == "H348" || strH == "H352" || strH == "H384" || strH == "H290" || strH == "H327" || strH == "H329" || strH == "H340" || strH == "H341")
+          ) {
+        earnedRoles.append(roleIds[18])
       }
     }
 
