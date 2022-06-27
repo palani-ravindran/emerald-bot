@@ -14,10 +14,11 @@ const execute = async (guild) => {
   const usersWithRole = championsClubRole.members.map(member => (
     member.user.id
   ))
+  console.log("[JOB: REMOVAL] Users with role:", usersWithRole);
 
   const noLongerHold = await toRemove(usersWithRole);
   if (noLongerHold.error) {
-    console.log("[JOB: REMOVAL] Script error:" + noLongerHold.message);
+    console.log("[JOB: REMOVAL] Script error:", noLongerHold.message);
     return;
   }
 
