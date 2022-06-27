@@ -16,10 +16,16 @@ const execute = async (guild) => {
   ))
   console.log("[JOB: REMOVAL] Users with role:", usersWithRole);
 
-  const noLongerHold = await toRemove(usersWithRole);
-  if (noLongerHold.error) {
-    console.log("[JOB: REMOVAL] Script error:", noLongerHold.message);
-    return;
+  const chunkSize = 200;
+  let noLongerHold = [];
+  for (let i = 0; i < usersWithRole.length; i += chunkSize) {
+    const chunk = usersWithRole.slice(i, i + chunkSize);
+    const chunkRemoval = await toRemove(chunk);
+    if (chunkRemoval.error) {
+      console.log("[JOB: REMOVAL] Script error:", noLongerHold.message);
+      return;
+    }
+    noLongerHold = noLongerHold.concat(chunkRemoval);
   }
 
   console.log("[JOB: REMOVAL] noLongerHold:", noLongerHold);
