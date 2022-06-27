@@ -475,7 +475,7 @@ function Flovatar() {
 
     if let collection = getAccount(user).getCapability(/public/FlovatarCollection).borrow<&{Flovatar.CollectionPublic}>() {
       let ids = collection.getIDs()
-      let flovatarsData: [Flovatar.FlovatarData] = Flovatar.getFlovatars(address: address)
+      let flovatarsData: [Flovatar.FlovatarData] = Flovatar.getFlovatars(address: user)
 
       // This checks for at least 1 Flovatar
       if ids.length > 0 {
