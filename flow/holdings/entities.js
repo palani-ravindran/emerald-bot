@@ -546,6 +546,7 @@ function Flovatar() {
         earnedRoles.append(roleIds[11])
       }
 
+      /*
       // girlpower
       let str = flovatar.metadata.combination.slice(from: 3, upTo: 7)
       let str2 = flovatar.metadata.combination.slice(from: flovatar.metadata.combination.length - Int(4), upTo: flovatar.metadata.combination.length)
@@ -556,6 +557,7 @@ function Flovatar() {
           ) {
         earnedRoles.append(roleIds[12])
       }
+      */
 
       // stoner
       let accessoryId: UInt64 = flovatar.accessoryId ?? 0
@@ -587,6 +589,7 @@ function Flovatar() {
         earnedRoles.append(roleIds[17])
       }
 
+      /*
       // gray
       let strB = flovatar.metadata.combination.slice(from: 0, upTo: 3)
       let strH = flovatar.metadata.combination.slice(from: 3, upTo: 7)
@@ -601,6 +604,7 @@ function Flovatar() {
           ) {
         earnedRoles.append(roleIds[18])
       }
+      */
     }
 
     return earnedRoles
