@@ -22,7 +22,7 @@ const execute = async (guild) => {
     const chunk = usersWithRole.slice(i, i + chunkSize);
     const chunkRemoval = await toRemove(chunk);
     if (chunkRemoval.error) {
-      console.log("[JOB: REMOVAL] Script error:", noLongerHold.message);
+      console.log("[JOB: REMOVAL] Script error:", chunkRemoval.message);
       return;
     }
     noLongerHold = noLongerHold.concat(chunkRemoval);
