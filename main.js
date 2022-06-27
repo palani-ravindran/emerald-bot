@@ -4,6 +4,7 @@ const path = require('path')
 
 const fs = require('fs');
 const fcl = require("@onflow/fcl");
+const schedule = require('node-schedule');
 
 const express = require('express');
 const { checkEmeraldID } = require('./flow/scripts/checkEmeraldID');
