@@ -2,8 +2,7 @@ const fcl = require('@onflow/fcl');
 const t = require('@onflow/types');
 
 const execute = async (guild) => {
-  // Actual champions club: 979886293091766302
-  const championsClubRoleId = '986392402178740294';
+  const championsClubRoleId = '979886293091766302';
   const championsClubRole = guild.roles.cache.find(role => role.id === championsClubRoleId);
   if (!championsClubRole) {
     console.log('[JOB: REMOVAL] Could not find the Champions Club role.')
@@ -53,8 +52,6 @@ async function toRemove(discordIds) {
                   break
                 }
               }
-              found = true
-              break
             }
           }
           if !found {

@@ -52,11 +52,11 @@ client.once('ready', () => {
     let commands = client.application?.commands;
 
     // Assign/remove roles every 10 minutes
-    schedule.scheduleJob("*/10 * * * * *", async function () {
+    schedule.scheduleJob("*/30 * * * * *", async function () {
         // await client.guilds.fetch();
         // console.log(client.guilds)
         console.log("[JOB: REMOVAL] Starting...")
-        const ufcstrike_guild = client.guilds.cache.get('927688041919807558'); // actual guild 920377252120789082
+        const ufcstrike_guild = client.guilds.cache.get('920377252120789082');
         client.commands.get('jobs-ufcstrike').execute(ufcstrike_guild);
     });
 
