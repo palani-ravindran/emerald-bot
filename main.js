@@ -48,16 +48,16 @@ for (const file of commandFiles) {
 client.once('ready', () => {
     console.log('Emerald bot is online!');
 
-    // const guildId = '927688041919807558'; // Use your guild ID instead
-    // const guild = client.guilds.cache.get(guildId);
     let commands = client.application?.commands;
-    // if (guild) {
-    //   commands = guild.commands;
-    // } else {
-    //   commands = client.application?.commands;
-    // }
 
-    // commands?.delete('979604763186429992');
+    // Assign/remove roles every 10 minutes
+    schedule.scheduleJob("*/10 * * * *", async function () {
+        // await client.guilds.fetch();
+        // console.log(client.guilds)
+        console.log("[JOB: REMOVAL] Starting...")
+        const ufcstrike_guild = client.guilds.cache.get('927688041919807558');
+        client.commands.get('jobs-ufcstrike').execute(ufcstrike_guild);
+    });
 
     commands?.create({
         name: 'resolve',
