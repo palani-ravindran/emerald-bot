@@ -270,7 +270,8 @@ const entities = {
   NFW,
   EAD,
   WIT,
-  InceptionFlunks
+  InceptionFlunks,
+  Flovatar
 }
 
 module.exports = {
