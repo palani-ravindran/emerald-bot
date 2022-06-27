@@ -52,9 +52,9 @@ async function toRemove(discordIds) {
                   found = true
                   break
                 }
-                found = true
-                break
               }
+              found = true
+              break
             }
           }
           if !found {
