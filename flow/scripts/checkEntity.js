@@ -212,6 +212,41 @@ const NFW = async (emeraldIds) => {
   return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
 }
 
+const Flovatar = async (emeraldIds) => {
+  const scriptCode = holdingScripts['Flovatar'];
+  const user = emeraldIds["blocto"];
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org' };
+
+  const roleIds = [
+    '897968477715955742', // FlovatarOwner
+    '939690430847651870', // Ape
+    '939690216812343348', // Devil
+    '939690492826910761', // FloTrotter
+    '939690570132123708', // Droid
+    '939689759956140072', // Racer
+    '939690786767929407', // Cat
+    '939690983052955649', // Naked
+    '939691086027296869', // Undead
+    '939695012873134141', // Power
+    '939691333805817878', // Starbattle
+    '948381132745998347', // Suit
+    '948381277436932126', // Girlpower
+    '948381344659038218', // Stoner
+    '948381416431976548', // Mustache
+    '948381486774640680', // First100
+    '948381563136147546', // Astronaut
+    '948381627334135898', // Legendary
+    '939690883102695434', // Gray
+  ];
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ];
+
+  return await executeScript(scriptCode, args);
+}
+
 const executeScript = async (scriptCode, args) => {
   try {
     const result = await fcl.send([
