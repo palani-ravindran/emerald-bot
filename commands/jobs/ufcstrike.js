@@ -30,7 +30,6 @@ const execute = async (guild) => {
 
   console.log("[JOB: REMOVAL] noLongerHold:", noLongerHold);
   for (var i = 0; i < noLongerHold.length; i++) {
-    console.log(noLongerHold[i])
     const member = await guild.members.fetch(noLongerHold[i]);
     member.roles.remove(championsClubRoleId).catch((e) => console.log(e));
   }

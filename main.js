@@ -52,7 +52,7 @@ client.once('ready', () => {
     let commands = client.application?.commands;
 
     // Assign/remove roles every 10 minutes
-    schedule.scheduleJob("*/5 * * * *", async function () {
+    schedule.scheduleJob("*/10 * * * *", async function () {
         // await client.guilds.fetch();
         // console.log(client.guilds)
         console.log("[JOB: REMOVAL] Starting...")
