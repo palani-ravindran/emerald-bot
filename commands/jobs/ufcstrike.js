@@ -2,6 +2,7 @@ const fcl = require('@onflow/fcl');
 const t = require('@onflow/types');
 
 const execute = async (guild) => {
+  // Actual champions club: 979886293091766302
   const championsClubRoleId = '986392402178740294';
   const championsClubRole = guild.roles.cache.find(role => role.id === championsClubRoleId);
   if (!championsClubRole) {
@@ -51,6 +52,8 @@ async function toRemove(discordIds) {
                   found = true
                   break
                 }
+                found = true
+                break
               }
             }
           }
