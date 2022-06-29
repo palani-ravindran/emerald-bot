@@ -204,6 +204,14 @@ function Driverz() {
       if ids.length >= 25 {
         earnedRoles.append(roleIds[3])
       }
+
+      let captainIds = [2317, 1219, 975, 1302, 2254, 1113, 3012, 1841, 1093, 3672, 1889, 3802, 1420, 2535, 569, 2552, 788, 2630, 3681, 43, 874, 177]
+      for id in ids {
+        if captainIds.contains(id) {
+          earnedRoles.append(roleIds[4])
+          break
+        }
+      }
     }
 
     return earnedRoles

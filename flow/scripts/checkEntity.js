@@ -98,7 +98,13 @@ const Driverz = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
 
   // 1. 1, 2. 6, 3. 13, 4. 25
-  const roleIds = ['981264736098344970', '987185469282484245', '981264841660579951', '981264946530754654'];
+  const roleIds = [
+    '981264736098344970', // 1
+    '987185469282484245', // 6
+    '981264841660579951', // 13
+    '981264946530754654', // 25
+    '991045701125423204', // Captain
+  ];
 
   const args = [
     fcl.arg(user, t.Address),
