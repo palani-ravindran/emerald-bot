@@ -14,7 +14,6 @@ const execute = async (guild) => {
   const usersWithRole = championsClubRole.members.map(member => (
     member.user.id
   ))
-  console.log("[JOB: REMOVAL] Users with role:", usersWithRole);
 
   const chunkSize = 200;
   let noLongerHold = [];
@@ -28,7 +27,7 @@ const execute = async (guild) => {
     noLongerHold = noLongerHold.concat(chunkRemoval);
   }
 
-  console.log("[JOB: REMOVAL] noLongerHold:", noLongerHold);
+  console.log("[JOB: REMOVAL] (Flowverse Socks) noLongerHold:", noLongerHold);
   for (var i = 0; i < noLongerHold.length; i++) {
     const member = await guild.members.fetch(noLongerHold[i]);
     member.roles.remove(championsClubRoleId).catch((e) => console.log(e));
