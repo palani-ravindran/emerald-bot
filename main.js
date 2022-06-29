@@ -58,6 +58,9 @@ client.once('ready', () => {
         console.log("[JOB: REMOVAL] Starting...")
         const ufcstrike_guild = client.guilds.cache.get('920377252120789082');
         client.commands.get('jobs-ufcstrike').execute(ufcstrike_guild);
+
+        const flowverse_guild = client.guilds.cache.get('866161724847685712');
+        client.commands.get('jobs-flowverse').execute(flowverse_guild);
     });
 
     commands?.create({
