@@ -64,6 +64,11 @@ client.once('ready', () => {
     });
 
     commands?.create({
+        name: 'Identify User',
+        type: 2
+    })
+
+    commands?.create({
         name: 'resolve',
         description: 'Get information about a .find, .fn, or address.',
         options: [
@@ -438,6 +443,9 @@ client.on('interactionCreate', async interaction => {
         const { options } = interaction;
         const commandName = options._subcommand ? interaction.commandName + '-' + options._subcommand : interaction.commandName;
         client.commands.get(commandName)?.execute(interaction, options);
+    } else if (interaction.isUserContextMenu()) {
+        const { options } = interaction;
+        client.commands.get("identify").execute(interaction, options);
     }
 });
 

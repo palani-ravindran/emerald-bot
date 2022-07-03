@@ -1,0 +1,493 @@
+[33ma1da33a[m[33m ([m[1;36mHEAD -> [m[1;32muser-commands[m[33m, [m[1;31morigin/user-commands[m[33m)[m inital user context POC
+[33m832fdc5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m again
+[33mb2d4c3c[m fix script
+[33m987440f[m update console logs
+[33md7be497[m captain for driverz
+[33m9e80279[m automatic role removal for flowverse socks
+[33m234a23c[m fix
+[33m1977000[m temp fix flovatar
+[33mf7a7378[m fix flovatar bug
+[33m65268e3[m make flovatar script better
+[33m4a3a91d[m fix error
+[33mdca4ebb[m fix error
+[33mb55a515[m add flovatar entity
+[33m81a9e0d[m every 10 minutes
+[33m018fde9[m change
+[33m1f7e8b2[m console log
+[33m48fc571[m change time
+[33m45f5d4b[m live
+[33mc52cd72[m try
+[33m57e7cdc[m try
+[33m3ca802b[m add schedule in main
+[33m062aa7d[m add schedule dependency
+[33md5dbd9b[m try job removal
+[33m3740b35[m up
+[33m11ca094[m back up
+[33m5a7d9bd[m flunks to wit
+[33mf593688[m update
+[33mf72a158[m change bot pick
+[33meab939b[m up
+[33mf1da7e7[m up
+[33m958f4d4[m done cleaning
+[33mf82b012[m delete entity command
+[33mc59d4ab[m delete some commands
+[33m065e4f1[m add log
+[33m681ef13[m groupverifier to verifygroup
+[33mea85f1d[m new driverz role
+[33m0d8cfe1[m get rid of console logs
+[33mac8277e[m get rid of console logs
+[33m9ebe662[m include dapper in batch
+[33m34d50bd[m tried enough
+[33me57fc48[m try one more time
+[33m5c3beb4[m forgot await idiot
+[33mb6eea5b[m try easier way
+[33m081d426[m try to fix
+[33mf72f685[m up
+[33m3d02b38[m go back to old
+[33m6e38edc[m wtf
+[33m5e48bf1[m try
+[33mad669ca[m try
+[33mfff6a0b[m try
+[33m96a27a2[m change indiscord command
+[33m64b40c9[m try to fix
+[33m05fcee6[m add console logs for error checking
+[33m3c47122[m add error check
+[33m568ca0d[m add inceptionflunks
+[33mc0d1993[m WIT
+[33me7586b1[m back up
+[33mf5006ca[m fix import error
+[33m308f106[m make category for verifiers
+[33mcd369d2[m nbatopshot
+[33maa9099c[m organize buttons hopefully
+[33m86ff761[m require path
+[33m3c568b0[m quick change
+[33m9973da2[m float category
+[33meda8074[m add ead
+[33m25c06c3[m change reset to manegeemeraldid
+[33mccbb6a4[m barter yard club
+[33m8597f6a[m make shorter
+[33mab317f0[m FIX
+[33m0b444b9[m float changes
+[33m3f2ecbd[m change float ephemeral
+[33m4a935fa[m some.place
+[33mbc3ef61[m health update
+[33m1dd6cd5[m metapanda
+[33mb0f7b33[m ballerz
+[33m4a74fdf[m add cryptopharaohs
+[33m6ad09f6[m add goated goats
+[33me71d7f2[m add flovatar
+[33m5d64021[m fix float
+[33mc6665c6[m thanks test :)
+[33md0982ca[m make more efficient
+[33m293db37[m fix bug with groups
+[33ma6fca4d[m fix bug in float.js
+[33m2668d44[m float includes all emeraldids now
+[33m54e5749[m better error message
+[33m8427564[m nbatopshot updates
+[33m3158805[m add 3 more for nfw
+[33me86e3e0[m new contract
+[33m7710eee[m add arlequin and piggos to nfw
+[33m4129ef1[m add emeraldid to nfw
+[33ma992235[m add goobz
+[33me04a2a7[m test script
+[33mb6f013a[m add bl0x
+[33m432de16[m add nfw
+[33ma608114[m Merge pull request #7 from stammbach/main
+[33me5c7786[m Add Genies First Collection
+[33md341faf[m add driverz
+[33m46b69a7[m change for nfl
+[33m2767236[m fix
+[33m57c31c8[m add nfl role
+[33m250abd2[m fix flunks
+[33mffe7b1c[m fix script
+[33m2efb9cd[m add flunks cliques
+[33m1fe80d0[m add nfl
+[33mfac5032[m change to dapper
+[33m8c8fb57[m added role
+[33mf53dd46[m new roles
+[33m7226b37[m fix ufc script
+[33mc1ac24b[m add ufc
+[33m5245240[m flunks
+[33mb7f103e[m add spacing to join
+[33m8ff645e[m fix script
+[33m522f670[m add ixlabs
+[33mf201d82[m try to display
+[33mfe2b99c[m try flunks
+[33m065d783[m back up
+[33mf930a58[m setup entity
+[33mda78793[m add flunks
+[33m38799ca[m add title
+[33ma8701e7[m hello
+[33m27af390[m try this
+[33m175ffb7[m try this one
+[33m81358c0[m add a ufc strike one
+[33m91a49c0[m add dapper verifier
+[33m4bc5ee1[m fix emeraldid
+[33mad26b1a[m require dapper for role
+[33m50106b5[m fix emeraldIds
+[33me2846cc[m add dapper wallet
+[33m7c4e609[m fix bug
+[33m5d07913[m attempt pub switch
+[33m04112dd[m add discord user too
+[33m001d8ee[m change to 25
+[33m2df622f[m new command
+[33m10b9c4f[m new command
+[33m58fc0d5[m fix evolution script
+[33mf368770[m add evoluton
+[33m5a1e144[m add gooberwhale and goobermegawhale
+[33m5f43627[m make modifications to identify and resolve
+[33m7dd9294[m make ephemeral
+[33m9c104b4[m add contracts
+[33med75f48[m fix errors
+[33ma92ccca[m g
+[33m329ce86[m fix thing
+[33m7142377[m back up
+[33m29f298f[m one mre
+[33ma0b43c0[m should work now
+[33m2b9b786[m logs
+[33mb007426[m wtf
+[33m47ca570[m string bool stuff
+[33mbd79250[m conversion
+[33m9a6d7ee[m bool to string
+[33m1b8a162[m all
+[33mb2b4e98[m add log
+[33m2bde919[m add all verifier for group
+[33m6e248c3[m add discord user to resolve
+[33m878e0ca[m parsefloat
+[33mb6bde20[m toFixed in ft script
+[33m63f6150[m fix path in ft script
+[33mcb224af[m fix typo in script
+[33m8669df6[m fix typos
+[33md0ed3d6[m add fungibletoken support
+[33m94e3680[m add fabricant
+[33m052fe38[m fix abdlegenary error
+[33m2f98511[m abdlegendary
+[33meed85cc[m add abdholder
+[33m7596212[m fix resolving
+[33m60d7a78[m cleaner
+[33m74d2167[m panic
+[33m5191209[m add info to groupverifier
+[33m2efe6a1[m allow for .find or .fn names in groupverifier command
+[33m5e69525[m group verifier
+[33m8cf0638[m only allow admins to run userswithrole
+[33ma0b9611[m back up
+[33maee32cc[m add csvmaker func
+[33mdf40f9f[m fun message
+[33m61b81ec[m emerald bot now verified! GUILD_MEMBERS intent
+[33m62f3065[m fix error
+[33m278f435[m update resolve to display emeraldid and roles
+[33m19003ba[m not allowed yet
+[33m7d61980[m new intent
+[33ma9fc3fb[m make getting user list so nice
+[33m210da7e[m live
+[33m89e9ce9[m changes
+[33ma89689b[m change urls
+[33m663b3d5[m stop idling
+[33m496f149[m stop idling
+[33m0c56499[m add ephemeral for identify error
+[33m05e4165[m test this
+[33m2a5a1c6[m better console log
+[33mc0a0be3[m edit
+[33m68326d9[m editreply
+[33m257a9fe[m updates
+[33m95fd4ca[m try follow up
+[33m42786cc[m switch ephemeral
+[33m97ffab3[m quick fix for now
+[33mb0b9705[m beef up bot response time
+[33m20aaba9[m fix identify
+[33mcdab291[m add async
+[33m54cbc5d[m fix initialize
+[33m5afe4f7[m buttons
+[33m8a08209[m beef up verifycustom
+[33m403fbd7[m beef up verify nft
+[33md538f1e[m execute
+[33me46fdc3[m try
+[33m61bdee5[m fix
+[33m12c7c87[m up
+[33m3f8d7ce[m up
+[33m5039185[m up and execute shorten
+[33mb8646ce[m only allow admin to send floatverifier
+[33m486e082[m floatverifier
+[33mcad32be[m back
+[33m3b2f6f1[m test
+[33m6cc82d4[m try to fix
+[33m6952bae[m no ephemeral for togglerole
+[33mff02e5c[m add togglerole command
+[33m0cdb64c[m update link
+[33mfba01b6[m change address to account in float.js
+[33mb9012e1[m back up
+[33m1b31b48[m add float command
+[33m7a4c2e6[m maybe fix
+[33mafdd264[m fix stuff
+[33m3410038[m defer reply userswithrole
+[33m63a3d84[m changes
+[33ma530a74[m make role in userswithrole simpler
+[33mb62c0bd[m change cache to fetch
+[33mf6f13fb[m userswithrole
+[33mf5a21bf[m test
+[33md269ee0[m add barteryardclub
+[33mbfac353[m add flowverse sock
+[33m83bacad[m fix bug
+[33mcc4cfd5[m add communityisutility
+[33m8881620[m communityisutility
+[33m8c85047[m identify
+[33m9416c79[m fix duplication
+[33m32f682f[m display topshot
+[33mb3ec382[m flowverse sock
+[33m1e0d28c[m make resolve public for now
+[33m467fc69[m make resolve private
+[33m8536f16[m add to lower case
+[33m8c13089[m remove console logs
+[33mc10a740[m add null check
+[33m39fbc7e[m ok
+[33m622fc14[m major changes
+[33m855ec1e[m add geniace
+[33m3b94952[m up
+[33m7ada755[m Merge pull request #6 from crash13override/main
+[33m382396a[m Adding extra Flovatar Clubs
+[33m3cf9d84[m back
+[33m9720659[m number one
+[33mc543c7a[m new holding for geniace
+[33mdb39fcb[m up
+[33m3bba9cd[m no author on message
+[33md86c397[m role message
+[33m9ed09ce[m add check
+[33mda97639[m add imports
+[33mec029e9[m role
+[33m20951c5[m update code to handle no exist
+[33mfa5c8ba[m topshot
+[33maf8b73b[m revert last commit
+[33m416a1f5[m remove initial
+[33m8a4f0df[m outdated message
+[33m93d0d54[m error checks
+[33m428bcc4[m rebuild
+[33m3321634[m readme
+[33m49e7934[m back up
+[33mb8f994a[m more secure signing using rlp decode
+[33m312626e[m lowercase p
+[33m19c1029[m dropchasepartner
+[33mc2ef22c[m logs
+[33m3b256eb[m up
+[33mccdc513[m readme
+[33m3e59d2d[m back up
+[33me66f278[m prevent crashing
+[33m4b798aa[m Merge pull request #3 from crash13override/flovatar
+[33m00167f2[m change setup
+[33m03dff5d[m Update holdings.js
+[33m8c7202e[m disable previous bots
+[33md90935b[m open again
+[33m3758cd5[m remove some console logs
+[33mb0565ef[m open to public
+[33m7e29909[m fix script
+[33m3fe14dc[m number from guildinfo
+[33me1c9040[m lower case
+[33mf52be16[m link
+[33me11679e[m readme and up
+[33meb87f7a[m flow cadut
+[33mf727a8b[m new
+[33m169d7ff[m token type
+[33mee281b8[m new replace
+[33m1587266[m logs and replace all
+[33m8b89cfa[m console logs
+[33me34c3bb[m p256 woo
+[33m53dd7bf[m p256 key
+[33m2ca6b97[m remove async
+[33mfdd0797[m script name
+[33m8b13b47[m mainnet
+[33m48c11b7[m testing
+[33m82dfd8a[m changes
+[33m9c55b4a[m mainnet upgrade
+[33m454db1e[m update error messages
+[33mb1961a4[m comments
+[33m1355b04[m remove admin
+[33m193c127[m comments
+[33m6cf1087[m updates to contract
+[33m0d54cdd[m up
+[33m224454e[m up
+[33m7db8d9a[m remove playground
+[33m9869f3c[m update contract
+[33mfd2838b[m up
+[33mf12bff5[m fail check
+[33m9937652[m fix delete
+[33m3c0771c[m fix backend
+[33m893a019[m new contract
+[33m4cb1ac6[m fix param
+[33m75b41c6[m gg
+[33m1e2246e[m transactionid
+[33m95fbb3b[m add types
+[33m5782be8[m START HERE
+[33md55a2cf[m mainnet
+[33mde954c6[m updates
+[33m6e4dd01[m fix bug
+[33m2cadd8d[m emeraldid contract
+[33m7f9078a[m more secure
+[33m21a37de[m add import
+[33mfa94f54[m fix
+[33m6d4a685[m big changes
+[33m84198a2[m remove duplicate code
+[33m4ca4c43[m new docs link
+[33mba7789a[m emeraldid
+[33mf929ab6[m setup
+[33m86eae23[m fix imports
+[33mc50dfac[m fixx permission
+[33m43d67d3[m add
+[33mc2432fb[m add ecfv
+[33mc160ed0[m deletion aid
+[33m1d2824b[m deletion assistance
+[33m9930309[m colors
+[33mec678f1[m add ephemerals
+[33mbc03b04[m push changes to connectEmeraldID
+[33m49c1631[m help deletion
+[33m27c0b21[m deletion
+[33m0fcb9e3[m fix address param
+[33m757acfc[m default address
+[33m0873cbb[m delete emerald id
+[33m8222e51[m add logs
+[33m0e05bea[m fix initialize
+[33mae3363e[m fix script
+[33m50066f1[m fix role
+[33me82952c[m emeraldid
+[33mdb8bb91[m yo
+[33mbc7f183[m emerald city
+[33m176121b[m updates
+[33m308526b[m updates api call
+[33m71ecd73[m change messages
+[33m1653616[m account one
+[33m4f865da[m get request
+[33m6c3c128[m fix get call
+[33m66c1b8d[m make async
+[33mdddf321[m had to await
+[33m837fe01[m checks
+[33m90d0a47[m no yarn
+[33mee7ea64[m back up
+[33m420b3eb[m check member id
+[33meac4e97[m fix typo
+[33ma3df525[m starting emeraldid process
+[33m142d6ca[m add contracts
+[33m1ec3bb0[m setup geniace and flovatar
+[33mc0d028f[m change color
+[33m4736a82[m other link
+[33m5279338[m validate
+[33m48c675e[m add return
+[33m3dd971e[m error handling
+[33mc86475d[m fix bug, not returning after res.send
+[33mb332cb1[m res.send
+[33m605f362[m pretty role
+[33m1edc4b2[m better looking join
+[33m0ce60ad[m multiple tokens per server
+[33me726e22[m help
+[33m4208ecc[m module exports
+[33m8e2a544[m get rid of import
+[33m2b2f837[m make cleaner
+[33mf98f1c8[m fix find setup
+[33m8fd1c9f[m fix address for find
+[33me322a48[m find update
+[33mbf036b2[m make live
+[33m4f954a4[m fix
+[33mb19d678[m update
+[33ma11a9a9[m update bot
+[33m35a7b58[m look cool
+[33m59ca651[m add extra check to nft
+[33m175045d[m test
+[33m1f9cbfa[m add logs
+[33m4e13b43[m add returns
+[33mffae5f1[m res end
+[33maf7b641[m added console log
+[33m74af2e3[m add console log
+[33m41bda06[m check error
+[33mc807e68[m update network problem
+[33mf36fa22[m fix network
+[33m0d98743[m configure fcl for setup
+[33m4f3244b[m update setup
+[33m36a2cb0[m fix require in join.js
+[33mbabea77[m make async execute join
+[33m95f7aaf[m make join better
+[33mefae5a2[m testnet
+[33m613b4c1[m fix testnet transaction
+[33mf5aca1c[m add environment config
+[33mbd92ee5[m mainnet trying
+[33mf8f1926[m test
+[33mc8a3820[m check error
+[33m8724ac1[m mainnet trying
+[33mf6b9373[m fix tx
+[33me9db900[m fix tx write data
+[33m4b60279[m include mainnet
+[33mbfbb4aa[m readme
+[33m6f70d71[m key
+[33m0aff707[m fix address
+[33mf5cab42[m back up
+[33m0e80f07[m plss
+[33m82e5782[m final
+[33m1c82fa2[m pls
+[33m9b96c4f[m please
+[33mb5564d7[m thing
+[33mf37789b[m ye
+[33m7e39cee[m please
+[33ma58bf98[m setup tenant
+[33me843c87[m remove
+[33mb3fad56[m fix security problem w contractnameaddress
+[33mcb0fada[m fix security problem w contractnameaddress
+[33mf7a9f38[m add permissions fix embed typo
+[33m622efd2[m fix import problem
+[33ma4170b1[m upgrade join command
+[33mdc875ce[m error handling
+[33m6d154be[m remove extra (
+[33m3cba3db[m upgrade join command
+[33mbd14e6c[m interactions
+[33md50d13b[m add error check
+[33mf05defb[m fix bug?
+[33maa23c97[m fix typo
+[33m589f523[m add error messages
+[33m2649a63[m add error check to adding roles
+[33m377c9fd[m remove console log
+[33m1fdf0bd[m error prone
+[33m03e6226[m stuff
+[33m00ab1d6[m change tx
+[33mc378fca[m pls
+[33m706abc3[m update ctx
+[33mb8677aa[m pls
+[33m28f7b34[m contracts
+[33m7d17625[m fix contract
+[33m98d1f7b[m hyperverse
+[33mfc1eb54[m fix typo lol
+[33m4e104fb[m finalize abstraction for now
+[33m1bab339[m add check to prevent role fail
+[33m3637edb[m is nan check
+[33m2dfef8c[m add error check
+[33m8956c79[m fix mint
+[33m59149b2[m handling panics
+[33m7208e9e[m convert cut ints to strings
+[33m469849b[m debug
+[33m085141b[m changed fixed guildid
+[33md396410[m test
+[33mc3e63fa[m fix block
+[33m5d7c007[m fix tx
+[33m68ea615[m fix setup param
+[33m0a7c86b[m # of arg requirements
+[33mbfb65c8[m add role
+[33m135c115[m remove auto imbed for mint command
+[33m6b05ce7[m add numbering and contract folder
+[33m45bd2a8[m added new mint thing
+[33mec0261a[m fix import path
+[33mbc63bfd[m fix logging errors
+[33m8fe1a2f[m abstraction changes
+[33md6459c9[m dms off error handling
+[33m5909df3[m error handling for dms off
+[33md87dd5a[m up and running
+[33m21b7ec2[m up and running
+[33mb0c8852[m error handling
+[33me5d1082[m make !
+[33me5c0ed8[m fix panic and update message
+[33m55cd2fc[m update messaging
+[33m28b5fdf[m restrict betatester
+[33m17bf140[m update message
+[33m8299e59[m update link for cors
+[33me8fb89e[m use cors
+[33m9fdb4af[m configure package.json
+[33mb00ef3f[m remove yarn.lock
+[33mec35b6a[m change join link
+[33m5f83abe[m move client elsewhere
+[33m1c24957[m beta tester
+[33m2c78129[m roles updates
+[33m1d1fb0d[m Added updated
+[33m461f82f[m initial commit :)
