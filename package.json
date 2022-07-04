@@ -2,7 +2,7 @@
   "name": "emerald-bot",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.1"
+    "node": "16.15.0"
   },
   "description": "",
   "main": "main.js",
@@ -18,7 +18,7 @@
     "@onflow/types": "^0.0.6",
     "crypto": "^1.0.1",
     "crypto-js": "^4.1.1",
-    "discord.js": "^13.6.0",
+    "discord.js": "^13.8.1",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "nodemon": "^2.0.15",

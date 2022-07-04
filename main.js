@@ -46,6 +46,11 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
+/*** THIS MAPS USER CONTEXT COMMANDS TO SLASH COMMANDS ***/
+const commandMap = {}
+// Create a similar entry as below for each user context command to map it to it's matching (slash) command
+// commandMap["Identify User"] = "identify"
+
 client.once('ready', () => {
     console.log('Emerald bot is online!');
 
@@ -62,6 +67,13 @@ client.once('ready', () => {
         const flowverse_guild = client.guilds.cache.get('866161724847685712');
         client.commands.get('jobs-flowverse').execute(flowverse_guild);
     });
+
+    //User context command with mapping
+    commands?.create({
+        name: 'Identify User',
+        type: Constants.ApplicationCommandTypes.USER
+    })
+    commandMap["Identify User"] = "identify"
 
     commands?.create({
         name: 'resolve',
@@ -438,6 +450,9 @@ client.on('interactionCreate', async interaction => {
         const { options } = interaction;
         const commandName = options._subcommand ? interaction.commandName + '-' + options._subcommand : interaction.commandName;
         client.commands.get(commandName)?.execute(interaction, options);
+    } else if (interaction.isUserContextMenu()) {
+        const { options } = interaction;
+        client.commands.get(commandMap[interaction.commandName]).execute(interaction, options);
     }
 });
 
