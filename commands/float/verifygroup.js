@@ -27,8 +27,7 @@ const execute = async (interaction, options) => {
       interaction.reply({ ephemeral: true, content: groupInfo.message }).catch(e => console.log(e));
       return;
     }
-    console.log(creator)
-    console.log(groupInfo)
+
     verifyGroupButton(interaction, creator, resolved, groupInfo, role.id, all);
   }
 }
@@ -51,7 +50,7 @@ const verifyGroupButton = (interaction, creator, resolved, groupInfo, roleId, al
     .setTitle(all ? `Verify you own all the FLOATs from ${groupInfo.name}` : `Verify you own a FLOAT from ${groupInfo.name}`)
     .addFields(
       { name: 'Group creator', value: creator },
-      { name: 'Group description', value: groupInfo.description }
+      { name: 'Group description', value: groupInfo.description || 'A Group created by ' + creator }
     )
     .setAuthor('Emerald City', 'https://i.imgur.com/YbmTuuW.png', 'https://discord.gg/emeraldcity')
     .setDescription('Click the `Verify` button below to get the ' + `<@&${roleId}>` + ' role with your EmeraldID.')
