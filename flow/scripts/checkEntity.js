@@ -1,101 +1,101 @@
-const fcl = require('@onflow/fcl');
-const t = require('@onflow/types');
-const { holdingScripts } = require('../holdings/entities');
+const fcl = require('@onflow/fcl')
+const t = require('@onflow/types')
+const { holdingScripts } = require('../holdings/entities')
 
 const UFC = async (emeraldIds) => {
-  const scriptCode = holdingScripts['UFC'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' };
+  const scriptCode = holdingScripts['UFC']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   // 1. 3+, 2. Champion
-  const roleIds = ['979898271281586180', '979886293091766302'];
+  const roleIds = ['979898271281586180', '979886293091766302']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const NFL = async (emeraldIds) => {
-  const scriptCode = holdingScripts['NFL'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' };
+  const scriptCode = holdingScripts['NFL']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   // 1. 3+
-  const roleIds = ['980633744966819930'];
+  const roleIds = ['980633744966819930']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const EAD = async (emeraldIds) => {
-  const scriptCode = holdingScripts['EAD'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' };
+  const scriptCode = holdingScripts['EAD']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   // 1. 25+, 2. 100+, 3. 250+ 
-  const roleIds = ['984246197101412432', '983563607335899217', '984246308179152966'];
+  const roleIds = ['984246197101412432', '983563607335899217', '984246308179152966']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const Flunks = async (emeraldIds) => {
-  const scriptCode = holdingScripts['Flunks'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['Flunks']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' }
 
   // 1. Holder, 2. Whale, 3. Jock, 4. Geek, 5. Prep, 6. Freak
-  const roleIds = ['961353472328994826', '958216670218965094', '979841797608050688', '979842660393185330', '979842799451140166', '979841981381480519'];
+  const roleIds = ['961353472328994826', '958216670218965094', '979841797608050688', '979842660393185330', '979842799451140166', '979841981381480519']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const InceptionFlunks = async (emeraldIds) => {
-  const scriptCode = holdingScripts['InceptionFlunks'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['InceptionFlunks']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' }
 
   // 1. >= 1, 2. >= 8, 3. >= 8
-  const roleIds = ['945509809745182740', '945509281267060807', '930157852377636906'];
+  const roleIds = ['945509809745182740', '945509281267060807', '930157852377636906']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const IXLabs = async (emeraldIds) => {
-  const scriptCode = holdingScripts['IXLabs'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['IXLabs']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' }
 
   // 1. 3 Cool Cats, 2. All 30 Cool Cats
-  const roleIds = ['922504964662771822', '922523238762950696'];
+  const roleIds = ['922504964662771822', '922523238762950696']
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const Driverz = async (emeraldIds) => {
-  const scriptCode = holdingScripts['Driverz'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['Driverz']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' }
 
   // 1. 1, 2. 6, 3. 13, 4. 25
   const roleIds = [
@@ -104,35 +104,35 @@ const Driverz = async (emeraldIds) => {
     '981264841660579951', // 13
     '981264946530754654', // 25
     '991045701125423204', // Captain
-  ];
+  ]
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
   ]
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const Genies = async (emeraldIds) => {
-  const scriptCode = holdingScripts['Genies'];
-  const user = emeraldIds["dapper"];
-  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['Genies']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org' }
 
   const roleIds = [
     // Lucid Tokyo Holder
     '981662081243811911',
-  ];
+  ]
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
-  ];
+  ]
 
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
 }
 
 const WIT = async (emeraldIds) => {
-  const scriptCode = holdingScripts['WIT'];
+  const scriptCode = holdingScripts['WIT']
 
   const roleIds = [
     '984558304510496798', // Ballerz
@@ -140,36 +140,36 @@ const WIT = async (emeraldIds) => {
     '984559036127129680', // Goobz
     '984559362381078538', // Flovatar
     '988632169276641331', // Flunks
-  ];
+  ]
 
-  let dapper = [];
-  let blocto = [];
+  let dapper = []
+  let blocto = []
   if (emeraldIds["dapper"]) {
     const dapperArgs = [
       fcl.arg(emeraldIds["dapper"], t.Address),
       fcl.arg(roleIds, t.Array(t.String))
     ]
-    dapper = await executeScript(scriptCode, dapperArgs);
+    dapper = await executeScript(scriptCode, dapperArgs)
   }
   if (emeraldIds["blocto"]) {
     const bloctoArgs = [
       fcl.arg(emeraldIds["blocto"], t.Address),
       fcl.arg(roleIds, t.Array(t.String))
     ]
-    blocto = await executeScript(scriptCode, bloctoArgs);
+    blocto = await executeScript(scriptCode, bloctoArgs)
   }
 
   if (blocto.error) {
-    blocto = [];
+    blocto = []
   }
   if (dapper.error) {
-    dapper = [];
+    dapper = []
   }
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0))
 }
 
 const NFW = async (emeraldIds) => {
-  const scriptCode = holdingScripts['NFW'];
+  const scriptCode = holdingScripts['NFW']
 
   const roleIds = [
     '982024446627954739', // Driverz
@@ -190,38 +190,38 @@ const NFW = async (emeraldIds) => {
     '983549184680538112', // MetaPanda
     '983553743326965780', // some.place
     '983580514214633504', // Barter Yard Club
-  ];
+  ]
 
-  let dapper = [];
-  let blocto = [];
+  let dapper = []
+  let blocto = []
   if (emeraldIds["dapper"]) {
     const dapperArgs = [
       fcl.arg(emeraldIds["dapper"], t.Address),
       fcl.arg(roleIds, t.Array(t.String))
     ]
-    dapper = await executeScript(scriptCode, dapperArgs);
+    dapper = await executeScript(scriptCode, dapperArgs)
   }
   if (emeraldIds["blocto"]) {
     const bloctoArgs = [
       fcl.arg(emeraldIds["blocto"], t.Address),
       fcl.arg(roleIds, t.Array(t.String))
     ]
-    blocto = await executeScript(scriptCode, bloctoArgs);
+    blocto = await executeScript(scriptCode, bloctoArgs)
   }
 
   if (blocto.error) {
-    blocto = [];
+    blocto = []
   }
   if (dapper.error) {
-    dapper = [];
+    dapper = []
   }
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0))
 }
 
 const Flovatar = async (emeraldIds) => {
-  const scriptCode = holdingScripts['Flovatar'];
-  const user = emeraldIds["blocto"];
-  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org' };
+  const scriptCode = holdingScripts['Flovatar']
+  const user = emeraldIds["blocto"]
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org' }
 
   const roleIds = [
     '897968477715955742', // FlovatarOwner
@@ -243,14 +243,31 @@ const Flovatar = async (emeraldIds) => {
     '948381563136147546', // Astronaut
     '948381627334135898', // Legendary
     '939690883102695434', // Gray
-  ];
+  ]
 
   const args = [
     fcl.arg(user, t.Address),
     fcl.arg(roleIds, t.Array(t.String))
-  ];
+  ]
 
-  return await executeScript(scriptCode, args);
+  return await executeScript(scriptCode, args)
+}
+
+const SNKRHUD = async (emeraldIds) => {
+  const scriptCode = holdingScripts['SNKRHUDNFT']
+  const user = emeraldIds['dapper']
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
+
+  const roleIds = [
+    '988442388278153226', // Whale
+  ]
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ]
+
+  return await executeScript(scriptCode, args)
 }
 
 const executeScript = async (scriptCode, args) => {
@@ -258,11 +275,11 @@ const executeScript = async (scriptCode, args) => {
     const result = await fcl.send([
       fcl.script(scriptCode),
       fcl.args(args)
-    ]).then(fcl.decode);
-    return result;
+    ]).then(fcl.decode)
+    return result
   } catch (e) {
     console.log(e)
-    return { error: true, message: 'You do not meet the requirements for any of these roles.' };
+    return { error: true, message: 'You do not meet the requirements for any of these roles.' }
   }
 }
 
@@ -277,7 +294,8 @@ const entities = {
   EAD,
   WIT,
   InceptionFlunks,
-  Flovatar
+  Flovatar,
+  SNKRHUD
 }
 
 module.exports = {
