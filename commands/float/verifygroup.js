@@ -16,7 +16,7 @@ const execute = async (interaction, options) => {
       resolved = await toAddress(creator);
     }
     if (!resolved) {
-      return {error: true, message: 'This account is invalid.'};
+      return { error: true, message: 'This account is invalid.' };
     }
 
     const groupName = options.getString('groupname');
@@ -27,7 +27,8 @@ const execute = async (interaction, options) => {
       interaction.reply({ ephemeral: true, content: groupInfo.message }).catch(e => console.log(e));
       return;
     }
-
+    console.log(creator)
+    console.log(groupInfo)
     verifyGroupButton(interaction, creator, resolved, groupInfo, role.id, all);
   }
 }
