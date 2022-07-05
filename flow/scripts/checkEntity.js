@@ -259,7 +259,8 @@ const SNKRHUD = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   const roleIds = [
-    '988442388278153226', // Whale
+    '953279887685333004', // Sidekicks (1+)
+    '988442388278153226', // Whale (10+)
   ]
 
   const args = [
