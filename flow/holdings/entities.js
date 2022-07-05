@@ -631,10 +631,10 @@ function SNKRHUDNFT () {
     if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&SNKRHUDNFT.Collection{NonFungibleToken.CollectionPublic}>() {
       let ids = collection.getIDs()
 
-      if ids.length >= 1 {
-        earnedRoles.append(roleIds[0])
-      } else if ids.length >= 10 {
+      if ids.length >= 10 {
         earnedRoles.append(roleIds[1])
+      } else if ids.length >= 1 {
+        earnedRoles.append(roleIds[0])
       }
     }
 
