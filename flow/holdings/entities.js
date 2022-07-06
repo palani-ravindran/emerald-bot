@@ -623,6 +623,7 @@ function Flovatar () {
 function SNKRHUDNFT () {
   return `
   import SNKRHUDNFT from 0x80af1db15aa6535a
+  import NonFungibleToken from 0x1d7e57aa55817448
 
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
