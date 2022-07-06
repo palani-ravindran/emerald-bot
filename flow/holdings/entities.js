@@ -1,4 +1,4 @@
-function UFC() {
+function UFC () {
   return `
   import UFC_NFT from 0x329feb3ab062d289
 
@@ -26,7 +26,7 @@ function UFC() {
   `
 }
 
-function NFL() {
+function NFL () {
   return `
   import AllDay from 0xe4cf4bdc1751c65d
 
@@ -46,7 +46,7 @@ function NFL() {
   `
 }
 
-function EAD() {
+function EAD () {
   return `
   import AllDay from 0xe4cf4bdc1751c65d
 
@@ -72,7 +72,7 @@ function EAD() {
   `
 }
 
-function Flunks() {
+function Flunks () {
   return `
   import Flunks from 0x807c3d470888cc48
 
@@ -121,7 +121,7 @@ function Flunks() {
   `
 }
 
-function InceptionFlunks() {
+function InceptionFlunks () {
   return `
   import Flunks from 0x807c3d470888cc48
 
@@ -145,7 +145,7 @@ function InceptionFlunks() {
   `
 }
 
-function IXLabs() {
+function IXLabs () {
   return `
   import TopShot from 0x0b2a3299cc857e29
 
@@ -182,7 +182,7 @@ function IXLabs() {
   `
 }
 
-function Driverz() {
+function Driverz () {
   return `
   import DriverzNFT from 0xa039bd7d55a96c0c
 
@@ -219,7 +219,7 @@ function Driverz() {
   `
 }
 
-function Genies() {
+function Genies () {
   return `
   import Genies from 0x12450e4bb3b7666e
 
@@ -258,7 +258,7 @@ function Genies() {
   `
 }
 
-function NFW() {
+function NFW () {
   return `
   import NonFungibleToken from 0x1d7e57aa55817448
   import DriverzNFT from 0xa039bd7d55a96c0c
@@ -417,7 +417,7 @@ function NFW() {
   `
 }
 
-function WIT() {
+function WIT () {
   return `
   import NonFungibleToken from 0x1d7e57aa55817448
   import GooberXContract from 0x34f2bf4a80bb0f69 
@@ -474,7 +474,7 @@ function WIT() {
   `
 }
 
-function Flovatar() {
+function Flovatar () {
   return `
   import Flovatar from 0x921ea449dffec68a
 
@@ -620,18 +620,21 @@ function Flovatar() {
   `
 }
 
-function SNKRHUDNFT() {
+function SNKRHUDNFT () {
   return `
   import SNKRHUDNFT from 0x80af1db15aa6535a
+  import NonFungibleToken from 0x1d7e57aa55817448
 
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-    // This checks for 10 Meerkats
-    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&SNKRHUDNFT.Collection{SNKRHUDNFT.CollectionPublic}>() {
+    // This checks for NFT asset count
+    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&SNKRHUDNFT.Collection{NonFungibleToken.CollectionPublic}>() {
       let ids = collection.getIDs()
 
       if ids.length >= 10 {
+        earnedRoles.append(roleIds[1])
+      } else if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
       }
     }
@@ -641,7 +644,7 @@ function SNKRHUDNFT() {
   `
 }
 
-function Bl0x() {
+function Bl0x () {
   return `
   import Bl0x from 0x7620acf6d7f2468a
   import NonFungibleToken from 0x1d7e57aa55817448
