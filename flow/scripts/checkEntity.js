@@ -254,7 +254,7 @@ const Flovatar = async (emeraldIds) => {
 }
 
 const SNKRHUD = async (emeraldIds) => {
-  const scriptCode = holdingScripts['SNKRHUDNFT']
+  const scriptCode = holdingScripts['SNKRHUD']
   const user = emeraldIds['dapper']
   if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
