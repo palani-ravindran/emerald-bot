@@ -629,7 +629,7 @@ function SNKRHUD() {
     var earnedRoles: [String] = []
 
     // This checks for NFT asset count
-    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&SNKRHUDNFT.Collection{NonFungibleToken.CollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&{SNKRHUDNFT.CollectionPublic}>() {
       let ids = collection.getIDs()
 
       if ids.length >= 10 {
