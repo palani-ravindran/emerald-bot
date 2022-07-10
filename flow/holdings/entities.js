@@ -14,7 +14,7 @@ function UFC() {
       for id in ids {
         let moment = collection.borrowUFC_NFT(id: id)!
         let metadata = UFC_NFT.getSetMetadata(setId: moment.setId)!
-        if (metadata["TIER"] == "Champion") {
+        if (metadata["TIER"]?.toLower() == "champion") {
           earnedRoles.append(roleIds[1])
           break
         }
@@ -644,6 +644,42 @@ function SNKRHUD() {
   `
 }
 
+function TheFabricant() {
+  return `
+  import ItemNFT from 0xfc91de5e6566cc7c
+  import TheFabricantS1ItemNFT from 0x09e03b1f871b3513
+  import TheFabricantS2ItemNFT from 0x7752ea736384322f
+  import TheFabricantAccessPass from 0x7752ea736384322f
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+    if let collection = getAccount(user).getCapability(ItemNFT.CollectionPublicPath).borrow<&{ItemNFT.ItemCollectionPublic}>() {
+      if collection.getIDs().length > 0 {
+        earnedRoles.append(roleIds[0])
+      }
+    }
+    if let collection = getAccount(user).getCapability(TheFabricantS1ItemNFT.CollectionPublicPath).borrow<&{TheFabricantS1ItemNFT.ItemCollectionPublic}>() {
+      if collection.getIDs().length > 0 {
+        earnedRoles.append(roleIds[1])
+      }
+    } 
+    if let collection = getAccount(user).getCapability(TheFabricantS2ItemNFT.CollectionPublicPath).borrow<&{TheFabricantS2ItemNFT.ItemCollectionPublic}>() {
+      if collection.getIDs().length > 0 {
+        earnedRoles.append(roleIds[2])
+      }
+    } 
+    if let collection = getAccount(user).getCapability(TheFabricantAccessPass.CollectionPublicPath).borrow<&{TheFabricantAccessPass.TheFabricantAccessPassCollectionPublic}>() {
+      if collection.getIDs().length > 0 {
+        earnedRoles.append(roleIds[3])
+      }
+    }
+
+    return earnedRoles
+  }
+  `
+}
+
 function Bl0x() {
   return `
   import Bl0x from 0x7620acf6d7f2468a
@@ -683,7 +719,8 @@ const holdingScripts = {
   InceptionFlunks,
   Flovatar,
   SNKRHUD,
-  Bl0x
+  Bl0x,
+  TheFabricant
 }
 
 module.exports = {

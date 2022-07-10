@@ -291,6 +291,26 @@ const Bl0x = async (emeraldIds) => {
   return await executeScript(scriptCode, args)
 }
 
+const TheFabricant = async (emeraldIds) => {
+  const scriptCode = holdingScripts['TheFabricant']
+  const user = emeraldIds['blocto']
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
+
+  const roleIds = [
+    '', // ItemNFT
+    '', // TheFabricantS1ItemNFT
+    '', // TheFabricantS2ItemNFT
+    '', // TheFabricantAccessPass
+  ]
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ]
+
+  return await executeScript(scriptCode, args)
+}
+
 const executeScript = async (scriptCode, args) => {
   try {
     const result = await fcl.send([
@@ -317,7 +337,8 @@ const entities = {
   InceptionFlunks,
   Flovatar,
   SNKRHUD,
-  Bl0x
+  Bl0x,
+  TheFabricant
 }
 
 module.exports = {

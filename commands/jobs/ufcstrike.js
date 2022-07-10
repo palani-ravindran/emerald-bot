@@ -52,7 +52,7 @@ async function toRemove(discordIds) {
               for id in ids {
                 let moment = collection.borrowUFC_NFT(id: id)!
                 let metadata = UFC_NFT.getSetMetadata(setId: moment.setId)!
-                if (metadata["TIER"] == "Champion") {
+                if (metadata["TIER"]?.toLower() == "champion") {
                   found = true
                   break
                 }
