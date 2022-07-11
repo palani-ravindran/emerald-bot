@@ -271,6 +271,43 @@ const SNKRHUD = async (emeraldIds) => {
   return await executeScript(scriptCode, args)
 }
 
+const Flowscore = async (emeraldIds) => {
+  const scriptCode = holdingScripts['Flowscore']
+  let dapper = []
+  let blocto = []
+
+  const roleIds = [
+    '991991999962042435', // SNKRHUD
+    '991991999962042434', // Bl0x
+  ]
+
+  if (emeraldIds["dapper"]) {
+    const dapperArgs = [
+      fcl.arg(emeraldIds["dapper"], t.Address),
+      fcl.arg(roleIds, t.Array(t.String))
+    ]
+    dapper = await executeScript(scriptCode, dapperArgs)
+  }
+
+  if (emeraldIds["blocto"]) {
+    const bloctoArgs = [
+      fcl.arg(emeraldIds["blocto"], t.Address),
+      fcl.arg(roleIds, t.Array(t.String))
+    ]
+    blocto = await executeScript(scriptCode, bloctoArgs)
+  }
+
+  if (blocto.error) {
+    blocto = []
+  }
+
+  if (dapper.error) {
+    dapper = []
+  }
+
+  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0))
+}
+
 const Bl0x = async (emeraldIds) => {
   const scriptCode = holdingScripts['Bl0x']
   const user = emeraldIds['blocto']
@@ -338,7 +375,8 @@ const entities = {
   Flovatar,
   SNKRHUD,
   Bl0x,
-  TheFabricant
+  TheFabricant,
+  Flowscore
 }
 
 module.exports = {
