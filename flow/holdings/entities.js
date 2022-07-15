@@ -703,7 +703,7 @@ function Bl0x() {
     }
 
     if let collection = getAccount(user).getCapability(Bl0xPack.CollectionPublicPath).borrow<&Bl0xPack.Collection{NonFungibleToken.CollectionPiublic}>() {
-      if collection.getIDs() > 0 {
+      if collection.getIDs().length > 0 {
         earnedRoles.append(roleIds[4])
       }
     }
