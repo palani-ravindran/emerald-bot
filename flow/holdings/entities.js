@@ -701,7 +701,7 @@ function Bl0x() {
       }
     }
 
-    return earnedRoles;
+    return earnedRoles
   }
   `
 }
@@ -732,6 +732,24 @@ function Flowscore() {
   `
 }
 
+function MotoGP() {
+  return `
+  import NonFungibleToken from 0x1d7e57aa55817448
+  import MotoGPCard from 0xa49cc0ee46c54bfb
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+    // 5 of them
+    if let collection = getAccount(user).getCapability(/public/motogpCardCollection).borrow<&MotoGPCard.Collection{MotoGPCard.ICardCollectionPublic}>() {
+      if collection.getIDs().length >= 5 {
+        earnedRoles.append(roleIds[0])
+      }
+    }
+  }
+  `
+}
+
 const holdingScripts = {
   UFC,
   Flunks,
@@ -747,7 +765,8 @@ const holdingScripts = {
   SNKRHUD,
   Bl0x,
   TheFabricant,
-  Flowscore
+  Flowscore,
+  MotoGP
 }
 
 module.exports = {

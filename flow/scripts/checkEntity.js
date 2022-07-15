@@ -334,10 +334,27 @@ const TheFabricant = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
 
   const roleIds = [
-    '', // ItemNFT
-    '', // TheFabricantS1ItemNFT
-    '', // TheFabricantS2ItemNFT
-    '', // TheFabricantAccessPass
+    '971043192889811014', // ItemNFT
+    '971121539766431774', // TheFabricantS1ItemNFT
+    '971121710331998259', // TheFabricantS2ItemNFT
+    '989488592839643147', // TheFabricantAccessPass
+  ]
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ]
+
+  return await executeScript(scriptCode, args)
+}
+
+const MotoGP = async (emeraldIds) => {
+  const scriptCode = holdingScripts['MotoGP']
+  const user = emeraldIds['blocto']
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
+
+  const roleIds = [
+    '', // 5 packs
   ]
 
   const args = [
@@ -376,7 +393,8 @@ const entities = {
   SNKRHUD,
   Bl0x,
   TheFabricant,
-  Flowscore
+  Flowscore,
+  MotoGP
 }
 
 module.exports = {
