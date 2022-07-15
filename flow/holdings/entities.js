@@ -684,6 +684,7 @@ function Bl0x() {
   return `
   import Bl0x from 0x7620acf6d7f2468a
   import NonFungibleToken from 0x1d7e57aa55817448
+  import Bl0xPack from 0x7620acf6d7f2468a
 
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = [];
@@ -698,6 +699,12 @@ function Bl0x() {
         earnedRoles.append(roleIds[1])
       } else if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
+      }
+    }
+
+    if let collection = getAccount(user).getCapability(Bl0xPack.CollectionPublicPath).borrow<&Bl0xPack.Collection{NonFungibleToken.CollectionPiublic}>() {
+      if collection.getIDs() > 0 {
+        earnedRoles.append(roleIds[4])
       }
     }
 
