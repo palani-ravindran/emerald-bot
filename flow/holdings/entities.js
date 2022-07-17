@@ -705,7 +705,7 @@ function Bl0x() {
         let nft = collection.borrowViewResolver(id: id)!
         let view = nft.resolveView(Type<Bl0x.Data>())! as! Bl0x.Data
     
-        if view!.traits.keys.contains("Module") {
+        if view.traits.keys.contains("Module") {
           earnedRoles.append(roleIds[5])
           break
         }
