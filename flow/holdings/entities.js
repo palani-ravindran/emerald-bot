@@ -700,6 +700,16 @@ function Bl0x() {
       } else if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
       }
+
+      for id in ids {
+        let nft = collection.borrowViewResolver(id: id)!
+        let view = nft.resolveView(Type<Bl0x.Data>())! as! Bl0x.Data
+    
+        if view!.traits.keys.contains("Module") {
+          earnedRoles.append(roleIds[5])
+          break
+        }
+      }
     }
 
     if let collection = getAccount(user).getCapability(Bl0xPack.CollectionPublicPath).borrow<&Bl0xPack.Collection{NonFungibleToken.CollectionPublic}>() {
