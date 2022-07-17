@@ -355,7 +355,7 @@ const MotoGP = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
 
   const roleIds = [
-    '', // 5 packs
+    '997444026703827095', // 5 packs
   ]
 
   const args = [
