@@ -685,6 +685,7 @@ function Bl0x() {
   import Bl0x from 0x7620acf6d7f2468a
   import NonFungibleToken from 0x1d7e57aa55817448
   import Bl0xPack from 0x7620acf6d7f2468a
+  import MetadataViews from 0x1d7e57aa55817448
 
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = [];
