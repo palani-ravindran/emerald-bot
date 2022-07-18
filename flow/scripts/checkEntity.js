@@ -374,7 +374,7 @@ const executeScript = async (scriptCode, args) => {
       fcl.script(scriptCode),
       fcl.args(args)
     ]).then(fcl.decode)
-    return result
+    return [...new Set(result)]; // removes duplicates
   } catch (e) {
     console.log(e)
     return { error: true, message: 'You do not meet the requirements for any of these roles.' }
