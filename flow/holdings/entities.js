@@ -689,7 +689,7 @@ function Bl0x() {
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = [];
 
-    if let collection = getAccount(user).getCapability(Bl0x.CollectionPublicPath).borrow<&Bl0x.Collection{NonFungibleToken.CollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(Bl0x.CollectionPublicPath).borrow<&Bl0x.Collection{NonFungibleToken.CollectionPublic, MetadataViews.ResolverCollection}>() {
       let ids = collection.getIDs()
       if ids.length >= 25 {
         earnedRoles.append(roleIds[3])
