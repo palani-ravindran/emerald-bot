@@ -669,7 +669,7 @@ function TheFabricant() {
         earnedRoles.append(roleIds[2])
       }
     } 
-    if let collection = getAccount(user).getCapability(TheFabricantAccessPass.CollectionPublicPath).borrow<&{TheFabricantAccessPass.TheFabricantAccessPassCollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(TheFabricantAccessPass.TheFabricantAccessPassCollectionPublicPath).borrow<&{TheFabricantAccessPass.TheFabricantAccessPassCollectionPublic}>() {
       if collection.getIDs().length > 0 {
         earnedRoles.append(roleIds[3])
       }
