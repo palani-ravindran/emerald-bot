@@ -320,6 +320,7 @@ const Bl0x = async (emeraldIds) => {
     '993413849946525736', // 25,
     '996126592403255347', // Unopened Packs
     '996500126573011098', // Module trait
+    '996499378841849866', // Artifact trait
   ]
 
   const args = [
