@@ -709,9 +709,9 @@ function Bl0x() {
         if view.traits.keys.contains("Module") {
           earnedRoles.append(roleIds[5])
         }
-        if view.traits.keys.contains("Artifact") {
-          earnedRoles.append(roleIds[6])
-        }
+        // if view.traits.keys.contains("Artifact") {
+        //   earnedRoles.append(roleIds[6])
+        // }
       }
     }
 
