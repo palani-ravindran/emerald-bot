@@ -64,7 +64,9 @@ function EAD() {
         earnedRoles.append(roleIds[2])
       } else if ids.length >= 25 {
         earnedRoles.append(roleIds[1])
-      } else if ids.length >= 1 {
+      }
+      
+      if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
       }
     }
