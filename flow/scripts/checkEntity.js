@@ -38,7 +38,13 @@ const EAD = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   // 1. 25+, 2. 100+, 3. 250+ 
-  const roleIds = ['984246197101412432', '983563607335899217', '984246308179152966']
+  const roleIds = [
+    '970994786720972830', // 1+
+    '984246197101412432', // 25+
+    '983563607335899217', // 100+
+    '984246308179152966',  // 250+
+    '999881442626641961', // 500+
+  ]
 
   const args = [
     fcl.arg(user, t.Address),
