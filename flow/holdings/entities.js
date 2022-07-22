@@ -58,17 +58,13 @@ function EAD() {
       let ids = collection.getIDs()
       if ids.length >= 500 {
         earnedRoles.append(roleIds[4])
-      }
-      if ids.length >= 250 {
+      } else if ids.length >= 250 {
         earnedRoles.append(roleIds[3])
-      }
-      if ids.length >= 100 {
+      } else if ids.length >= 100 {
         earnedRoles.append(roleIds[2])
-      }
-      if ids.length >= 25 {
+      } else if ids.length >= 25 {
         earnedRoles.append(roleIds[1])
-      }
-      if ids.length >= 1 {
+      } else if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
       }
     }
