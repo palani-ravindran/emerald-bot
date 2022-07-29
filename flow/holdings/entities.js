@@ -774,6 +774,39 @@ function MotoGP() {
   `
 }
 
+function CNN() {
+  return `
+  import CNN_NFT from 0x329feb3ab062d289
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+      if let collection = getAccount(user).getCapability(CNN_NFT.CollectionPublicPath).borrow<&{CNN_NFT.CNN_NFTCollectionPublic}>() {
+      let ids = collection.getIDs()
+      
+      // This checks for at least 1 CNN Moment
+      if ids.length >= 1 {
+        // This assigns the Vault Collector role
+        earnedRoles.append(roleIds[0])
+      }
+      for id in ids {
+        let moment = collection.borrowCNN_NFT(id: id)!
+        let metadata = CNN_NFT.getSetMetadata(setId: moment.setId)!
+        
+        // This checks for the First Collector Coin
+        if (metadata["name"] == "First Collector Coin") {
+
+          // This assigns the First Collector role
+          earnedRoles.append(roleIds[1])
+          break
+        }
+      }
+    }
+    return earnedRoles
+  }
+  `
+}
+
 const holdingScripts = {
   UFC,
   Flunks,
@@ -790,7 +823,8 @@ const holdingScripts = {
   Bl0x,
   TheFabricant,
   Flowscore,
-  MotoGP
+  MotoGP,
+  CNN
 }
 
 module.exports = {
