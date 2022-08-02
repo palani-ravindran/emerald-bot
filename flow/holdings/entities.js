@@ -781,7 +781,7 @@ function CNN() {
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-      if let collection = getAccount(user).getCapability(CNN_NFT.CollectionPublicPath).borrow<&{CNN_NFT.CNN_NFTCollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(CNN_NFT.CollectionPublicPath).borrow<&{CNN_NFT.CNN_NFTCollectionPublic}>() {
       let ids = collection.getIDs()
       
       // This checks for at least 1 CNN Moment
@@ -812,24 +812,27 @@ function TSE() {
   import TopShot from 0x0b2a3299cc857e29
 
   pub fun main(user: Address, roleIds: [String]): [String] {
-    let setID: UInt32 = 65
-    // We -1 here because there was a burned moment
-    let neededLength = TopShot.getPlaysInSet(setID: setID)!.length - 1
+    var earnedRoles: [String] = []
     
-    let collection = getAccount(user).getCapability(/public/MomentCollection)
-                        .borrow<&{TopShot.MomentCollectionPublic}>()
-                        ?? panic("GG")
-    
-    let ids = collection.getIDs()
-    let playIds: [UInt32] = []
-    for id in ids {
-      let moment = collection.borrowMoment(id: id)!
-      let playID = moment.data.playID
-      if moment.data.setID == setID && !playIds.contains(playID) {
-        playIds.append(playID)
+    if let collection = getAccount(user).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
+      let setID: UInt32 = 65
+      
+      // We -1 here because there was a burned moment
+      let neededLength = TopShot.getPlaysInSet(setID: setID)!.length - 1
+      
+      let ids = collection.getIDs()
+      let playIds: [UInt32] = []
+      for id in ids {
+        let moment = collection.borrowMoment(id: id)!
+        let playID = moment.data.playID
+        if moment.data.setID == setID && !playIds.contains(playID) {
+          playIds.append(playID)
+        }
+      }
+      if playIds.length == neededLength {
+        earnedRoles.append(roleIds[0])
       }
     }
-    return playIds.length == neededLength
   }
   `
 }
