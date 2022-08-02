@@ -380,7 +380,7 @@ const TSE = async (emeraldIds) => {
   if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
 
   const roleIds = [
-    '1004056759637393568', // Owns all 'Extra Spice' set minus the burned moment
+    '1003849437103272018', // Owns all 'Extra Spice' set minus the burned moment
   ]
 
   const args = [
