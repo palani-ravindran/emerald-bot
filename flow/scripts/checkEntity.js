@@ -317,7 +317,7 @@ const Flowscore = async (emeraldIds) => {
 const Bl0x = async (emeraldIds) => {
   const scriptCode = holdingScripts['Bl0x']
   const user = emeraldIds['blocto']
-  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto' }
 
   const roleIds = [
     '993411748927385681', // 1
@@ -340,7 +340,7 @@ const Bl0x = async (emeraldIds) => {
 const TheFabricant = async (emeraldIds) => {
   const scriptCode = holdingScripts['TheFabricant']
   const user = emeraldIds['blocto']
-  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto' }
 
   const roleIds = [
     '971043192889811014', // ItemNFT
@@ -360,10 +360,27 @@ const TheFabricant = async (emeraldIds) => {
 const MotoGP = async (emeraldIds) => {
   const scriptCode = holdingScripts['MotoGP']
   const user = emeraldIds['blocto']
-  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper' }
+  if (!user) return { error: true, message: 'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto' }
 
   const roleIds = [
     '997444026703827095', // 5 packs
+  ]
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ]
+
+  return await executeScript(scriptCode, args)
+}
+
+const TSE = async (emeraldIds) => {
+  const scriptCode = holdingScripts['TSE']
+  const user = emeraldIds['dapper']
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
+
+  const roleIds = [
+    '1004056759637393568', // Owns all 'Extra Spice' set minus the burned moment
   ]
 
   const args = [
@@ -378,12 +395,12 @@ const CNN = async (emeraldIds) => {
   const scriptCode = holdingScripts['CNN']
   let dapper = []
   let blocto = []
-  
-    const roleIds = [
-      '953264416890171413', // Vault Collector
-      '1002409710223376474' // First Collector
-    ]
-  
+
+  const roleIds = [
+    '953264416890171413', // Vault Collector
+    '1002409710223376474' // First Collector
+  ]
+
   if (emeraldIds["dapper"]) {
     const dapperArgs = [
       fcl.arg(emeraldIds["dapper"], t.Address),
@@ -441,7 +458,8 @@ const entities = {
   TheFabricant,
   Flowscore,
   MotoGP,
-  CNN
+  CNN,
+  TSE
 }
 
 module.exports = {
