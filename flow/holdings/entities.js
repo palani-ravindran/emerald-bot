@@ -812,7 +812,7 @@ function TSE() {
   import TopShot from 0x0b2a3299cc857e29
 
   pub fun main(user: Address, roleIds: [String]): [String] {
-    let setID = 65
+    let setID: UInt32 = 65
     // We -1 here because there was a burned moment
     let neededLength = TopShot.getPlaysInSet(setID: setID)!.length - 1
     
