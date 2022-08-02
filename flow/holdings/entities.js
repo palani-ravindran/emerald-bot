@@ -816,7 +816,7 @@ function TSE() {
     
     if let collection = getAccount(user).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
       let setID: UInt32 = 65
-      
+
       // We -1 here because there was a burned moment
       let neededLength = TopShot.getPlaysInSet(setID: setID)!.length - 1
       
@@ -833,6 +833,8 @@ function TSE() {
         earnedRoles.append(roleIds[0])
       }
     }
+
+    return earnedRoles
   }
   `
 }
