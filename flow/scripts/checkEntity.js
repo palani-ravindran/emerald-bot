@@ -441,6 +441,27 @@ const executeScript = async (scriptCode, args) => {
   }
 }
 
+const Gaia = async (emeraldIds) => {
+  const scriptCode = holdingScripts['Gaia']
+  const user = emeraldIds["dapper"]
+  if (!user) return { error: true, message: 'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper' }
+
+  const roleIds = [
+    '1004841038550155364', // Driverz
+    '1004840997492113498', // Flunks
+    '1004840955742011442', // SNKRHUD,
+    '1004840033003524166', // Ballerz
+    '1004840871671386122', // MetaPanda
+    '1004840269562261535', // Barter Yard Club
+  ]
+
+  const args = [
+    fcl.arg(user, t.Address),
+    fcl.arg(roleIds, t.Array(t.String))
+  ]
+  return await executeScript(scriptCode, args)
+}
+
 const entities = {
   UFC,
   Flunks,
@@ -459,7 +480,8 @@ const entities = {
   Flowscore,
   MotoGP,
   CNN,
-  TSE
+  TSE,
+  Gaia
 }
 
 module.exports = {
