@@ -453,6 +453,7 @@ const Gaia = async (emeraldIds) => {
     '1004840033003524166', // Ballerz
     '1004840871671386122', // MetaPanda
     '1004840269562261535', // Barter Yard Club
+    '1004967835031842846', // Sneakerz
   ]
 
   const args = [
