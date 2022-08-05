@@ -896,6 +896,19 @@ function Gaia() {
         earnedRoles.append(roleIds[5])
       }
     } 
+
+    // Sneakerz
+    if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
+      for id in collection.getIDs() {
+        let nft = collection.borrowGaiaNFT(id: id)!
+        let info = Gaia.getSetInfo(setID: nft.data.setID)
+        if info != nil && info!.name == "Sneakerz" {
+          earnedRoles.append(roleIds[6])
+          continue
+        }
+      }
+    } 
+    
     return earnedRoles
   } 
   `;
