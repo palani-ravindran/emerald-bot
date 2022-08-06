@@ -841,8 +841,141 @@ function TSE() {
 
 function Momentables() {
   return `
-  import Momentable from 0x0b2a3299cc857e29
-  
+  import Momentables from 0x9d21537544d9123d
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = [];
+    var cryptoPharoahCount: UInt64 = 0;
+    var pharoahCatsCount: UInt64 = 0;
+
+    let collection = getAccount(user).getCapability(Momentables.CollectionPublicPath).borrow<&{Momentables.MomentablesCollectionPublic}>()!;
+
+    for id in collection.getIDs() {
+        let item = collection.borrowMomentables(id: id)
+        let momentableCollectionDetails = item!.getMomentableCollectionDetails();
+
+        if(momentableCollectionDetails["Collection Name"]!=nil){
+            let name = momentableCollectionDetails["Collection Name"]!;
+            if(name == "Crypto Pharaohs"){
+                cryptoPharoahCount = cryptoPharoahCount + 1;
+            }else if(name == "Pharaoh Cats"){
+                pharoahCatsCount = pharoahCatsCount + 1;
+            }
+            
+        }else if(momentableCollectionDetails["name"]!=nil){
+            let name = momentableCollectionDetails["name"]!;
+            if(name == "Crypto Pharaohs"){
+                cryptoPharoahCount = cryptoPharoahCount + 1;
+            }else if(name == "Pharaoh Cats"){
+                pharoahCatsCount = pharoahCatsCount + 1;
+            }
+        }
+        else{
+            earnedRoles.append(roleIds[0]);
+        }
+         
+     }
+
+    // Crypto Pharaohs Roles
+    if (cryptoPharoahCount>0 && cryptoPharoahCount < 3){
+        earnedRoles.append(roleIds[0]);
+    }else if(cryptoPharoahCount>=3 && cryptoPharoahCount < 6){
+        earnedRoles.append(roleIds[1]);
+    }else if(cryptoPharoahCount>=6 && cryptoPharoahCount < 9){
+        earnedRoles.append(roleIds[2]);
+    }else if(cryptoPharoahCount>=9){
+        earnedRoles.append(roleIds[3]);
+    }
+
+    // Pharaoh Cats Roles
+
+    if (pharoahCatsCount>0 && pharoahCatsCount < 3){
+        earnedRoles.append(roleIds[4]);
+    }else if(pharoahCatsCount>=3 && pharoahCatsCount < 6){
+        earnedRoles.append(roleIds[5]);
+    }else if(pharoahCatsCount>=6 && pharoahCatsCount < 9){
+        earnedRoles.append(roleIds[6]);
+    }else if(pharoahCatsCount>=9){
+        earnedRoles.append(roleIds[7]);
+    }
+    
+    return earnedRoles
+  }
+  `;
+}
+
+function Gaia() {
+  return `
+  import NonFungibleToken from 0x1d7e57aa55817448
+  import DriverzNFT from 0xa039bd7d55a96c0c
+  import Flunks from 0x807c3d470888cc48 
+  import SNKRHUDNFT from 0x80af1db15aa6535a
+  import Gaia from 0x8b148183c28ff88f
+  import MetaPanda from 0xf2af175e411dfff8
+  import BarterYardClubWerewolf from 0x28abb9f291cadaf2
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+    // Driverz
+    if let collection = getAccount(user).getCapability(DriverzNFT.CollectionPublicPath).borrow<&{DriverzNFT.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[0])
+      }
+    }
+
+    // Flunks
+    if let collection = getAccount(user).getCapability(Flunks.CollectionPublicPath).borrow<&Flunks.Collection{Flunks.FlunksCollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[1])
+      }
+    }
+
+    // SNKRHUD
+    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&{SNKRHUDNFT.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[2])
+      }
+    }
+
+    // Ballerz
+    if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
+      for id in collection.getIDs() {
+        let nft = collection.borrowGaiaNFT(id: id)!
+        let info = Gaia.getSetInfo(setID: nft.data.setID)
+        if info != nil && info!.name == "Ballerz" {
+          earnedRoles.append(roleIds[3])
+          continue
+        }
+      }
+    } 
+
+    // MetaPandas
+    if let collection = getAccount(user).getCapability(MetaPanda.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[4])
+      }
+    }
+    
+    // Barter Yard Club
+    if let collection = getAccount(user).getCapability(BarterYardClubWerewolf.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[5])
+      }
+    } 
+
+    // Sneakerz
+    if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
+      for id in collection.getIDs() {
+        let nft = collection.borrowGaiaNFT(id: id)!
+        let info = Gaia.getSetInfo(setID: nft.data.setID)
+        if info != nil && info!.name == "Sneakerz" {
+          earnedRoles.append(roleIds[6])
+          continue
+        }
+      }
+    } 
+    
+    return earnedRoles
+  } 
   `;
 }
 
@@ -865,6 +998,8 @@ const holdingScripts = {
   MotoGP,
   CNN,
   TSE,
+  Gaia,
+  Momentables,
 };
 
 module.exports = {
