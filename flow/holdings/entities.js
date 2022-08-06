@@ -848,28 +848,12 @@ function Gaia() {
   import Gaia from 0x8b148183c28ff88f
   import MetaPanda from 0xf2af175e411dfff8
   import BarterYardClubWerewolf from 0x28abb9f291cadaf2
+  import UFC_NFT from 0x329feb3ab062d289
+  import TopShot from 0x0b2a3299cc857e29
+  import AllDay from 0xe4cf4bdc1751c65d
+  
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
-    // Driverz
-    if let collection = getAccount(user).getCapability(DriverzNFT.CollectionPublicPath).borrow<&{DriverzNFT.CollectionPublic}>() {
-      if collection.getIDs().length >= 1 {
-        earnedRoles.append(roleIds[0])
-      }
-    }
-
-    // Flunks
-    if let collection = getAccount(user).getCapability(Flunks.CollectionPublicPath).borrow<&Flunks.Collection{Flunks.FlunksCollectionPublic}>() {
-      if collection.getIDs().length >= 1 {
-        earnedRoles.append(roleIds[1])
-      }
-    }
-
-    // SNKRHUD
-    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&{SNKRHUDNFT.CollectionPublic}>() {
-      if collection.getIDs().length >= 1 {
-        earnedRoles.append(roleIds[2])
-      }
-    }
 
     // Ballerz
     if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
@@ -877,25 +861,11 @@ function Gaia() {
         let nft = collection.borrowGaiaNFT(id: id)!
         let info = Gaia.getSetInfo(setID: nft.data.setID)
         if info != nil && info!.name == "Ballerz" {
-          earnedRoles.append(roleIds[3])
+          earnedRoles.append(roleIds[0])
           continue
         }
       }
-    } 
-
-    // MetaPandas
-    if let collection = getAccount(user).getCapability(MetaPanda.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
-      if collection.getIDs().length >= 1 {
-        earnedRoles.append(roleIds[4])
-      }
     }
-    
-    // Barter Yard Club
-    if let collection = getAccount(user).getCapability(BarterYardClubWerewolf.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
-      if collection.getIDs().length >= 1 {
-        earnedRoles.append(roleIds[5])
-      }
-    } 
 
     // Sneakerz
     if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
@@ -903,11 +873,135 @@ function Gaia() {
         let nft = collection.borrowGaiaNFT(id: id)!
         let info = Gaia.getSetInfo(setID: nft.data.setID)
         if info != nil && info!.name == "Sneakerz" {
-          earnedRoles.append(roleIds[6])
+          earnedRoles.append(roleIds[1])
           continue
         }
       }
-    } 
+    }
+    
+    // Driverz
+    if let collection = getAccount(user).getCapability(DriverzNFT.CollectionPublicPath).borrow<&{DriverzNFT.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[2])
+      }
+    }
+
+    // Flunks
+    if let collection = getAccount(user).getCapability(Flunks.CollectionPublicPath).borrow<&Flunks.Collection{Flunks.FlunksCollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[3])
+      }
+    }
+
+    // SNKRHUD
+    if let collection = getAccount(user).getCapability(SNKRHUDNFT.CollectionPublicPath).borrow<&{SNKRHUDNFT.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[4])
+      }
+    }
+
+    // MetaPandas
+    if let collection = getAccount(user).getCapability(MetaPanda.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[5])
+      }
+    }
+    
+    // Barter Yard Club
+    if let collection = getAccount(user).getCapability(BarterYardClubWerewolf.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[6])
+      }
+    }
+
+    // Gaia Deity
+    if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
+      // if assigned all 7 previous roles
+      if earnedRoles.length >= 7 {
+        earnedRoles.append(roleIds[14])
+      }
+    }
+
+    // UFC
+    if let collection = getAccount(user).getCapability(UFC_NFT.CollectionPublicPath).borrow<&UFC_NFT.Collection{UFC_NFT.UFC_NFTCollectionPublic}>() {
+      let ids = collection.getIDs()
+
+      // has 3 or more UFC moments
+      if ids.length >= 3 {
+        earnedRoles.append(roleIds[7])
+      }
+
+      // has champion moment
+      for id in ids {
+        let moment = collection.borrowUFC_NFT(id: id)!
+        let metadata = UFC_NFT.getSetMetadata(setId: moment.setId)!
+        if (metadata["TIER"]?.toLower() == "champion") {
+          earnedRoles.append(roleIds[8])
+          break
+        }
+      }
+    }
+
+    // H&S
+    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
+      let setID = TopShot.getSetIDsByName(setName: 'Hustle and Show')?.removeFirst()!
+      let neededLength = TopShot.getPlaysInSet(setID: setID)!.length
+
+      let ids = collection.getIDs()
+      let playIds: [UInt32] = []
+      for id in ids {
+        let moment = collection.borrowMoment(id: id)!
+        let playID = moment.data.playID
+        if moment.data.setID == setID && !playIds.contains(playID) {
+          playIds.append(playID)
+        }
+      }
+      if playIds.length == neededLength {
+        earnedRoles.append(roleIds[13])
+      }
+    }
+
+    // Cool Cats
+    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
+      let setID = TopShot.getSetIDsByName(setName: 'Cool Cats')?.removeFirst()!
+      let neededLength = TopShot.getPlaysInSet(setID: setID)!.length
+
+      let ids = collection.getIDs()
+      let playIds: [UInt32] = []
+      for id in ids {
+        let moment = collection.borrowMoment(id: id)!
+        let playID = moment.data.playID
+        if moment.data.setID == setID && !playIds.contains(playID) {
+          playIds.append(playID)
+        }
+      }
+      // If the user has 3 or more Cool Cat Moments
+      if playIds.length >= 3 {
+        earnedRoles.append(roleIds[11])
+      }
+      // If the user has all 30 unique Cool Cat Moments
+      if playIds.length == neededLength {
+        earnedRoles.append(roleIds[12])
+      }
+    }
+
+    // NBATS
+    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
+      let ids = collection.getIDs()
+      // If the user has 3 or more NBATS moments
+      if ids.length >= 3 {
+        earnedRoles.append(roleIds[10])
+      }
+    }
+
+    // NFLAD
+    if let collection = getAccount(user).getCapability(AllDay.CollectionPublicPath).borrow<&AllDay.Collection{AllDay.MomentNFTCollectionPublic}>() {
+      let ids = collection.getIDs()
+      // If the user has 3 or more NFLAD moments
+      if ids.length >= 3 {
+        earnedRoles.append(roleIds[0])
+      }
+    }
     
     return earnedRoles
   } 
