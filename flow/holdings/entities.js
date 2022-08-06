@@ -23,7 +23,7 @@ function UFC() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function NFL() {
@@ -43,7 +43,7 @@ function NFL() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function EAD() {
@@ -73,7 +73,7 @@ function EAD() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Flunks() {
@@ -122,7 +122,7 @@ function Flunks() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function InceptionFlunks() {
@@ -146,7 +146,7 @@ function InceptionFlunks() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function IXLabs() {
@@ -183,7 +183,7 @@ function IXLabs() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Driverz() {
@@ -220,7 +220,7 @@ function Driverz() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Genies() {
@@ -259,7 +259,7 @@ function Genies() {
 
     return earnedRoles;
   }
-  `
+  `;
 }
 
 function NFW() {
@@ -418,7 +418,7 @@ function NFW() {
 
     return earnedRoles
   } 
-  `
+  `;
 }
 
 function WIT() {
@@ -475,7 +475,7 @@ function WIT() {
 
     return earnedRoles
   } 
-  `
+  `;
 }
 
 function Flovatar() {
@@ -621,7 +621,7 @@ function Flovatar() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function SNKRHUD() {
@@ -645,7 +645,7 @@ function SNKRHUD() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function TheFabricant() {
@@ -681,7 +681,7 @@ function TheFabricant() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Bl0x() {
@@ -727,7 +727,7 @@ function Bl0x() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Flowscore() {
@@ -753,7 +753,7 @@ function Flowscore() {
       }
     }
   }
-  `
+  `;
 }
 
 function MotoGP() {
@@ -771,7 +771,7 @@ function MotoGP() {
       }
     }
   }
-  `
+  `;
 }
 
 function CNN() {
@@ -804,7 +804,7 @@ function CNN() {
     }
     return earnedRoles
   }
-  `
+  `;
 }
 
 function TSE() {
@@ -836,7 +836,14 @@ function TSE() {
 
     return earnedRoles
   }
-  `
+  `;
+}
+
+function Momentables() {
+  return `
+  import Momentable from 0x0b2a3299cc857e29
+  
+  `;
 }
 
 const holdingScripts = {
@@ -857,9 +864,9 @@ const holdingScripts = {
   Flowscore,
   MotoGP,
   CNN,
-  TSE
-}
+  TSE,
+};
 
 module.exports = {
-  holdingScripts
-}
+  holdingScripts,
+};
