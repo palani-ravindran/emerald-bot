@@ -1007,49 +1007,6 @@ function Gaia() {
       }
     }
 
-    // H&S
-    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
-      let setID = TopShot.getSetIDsByName(setName: 'Hustle and Show')?.removeFirst()!
-      let neededLength = TopShot.getPlaysInSet(setID: setID)!.length
-
-      let ids = collection.getIDs()
-      let playIds: [UInt32] = []
-      for id in ids {
-        let moment = collection.borrowMoment(id: id)!
-        let playID = moment.data.playID
-        if moment.data.setID == setID && !playIds.contains(playID) {
-          playIds.append(playID)
-        }
-      }
-      if playIds.length == neededLength {
-        earnedRoles.append(roleIds[13])
-      }
-    }
-
-    // Cool Cats
-    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
-      let setID = TopShot.getSetIDsByName(setName: 'Cool Cats')?.removeFirst()!
-      let neededLength = TopShot.getPlaysInSet(setID: setID)!.length
-
-      let ids = collection.getIDs()
-      let playIds: [UInt32] = []
-      for id in ids {
-        let moment = collection.borrowMoment(id: id)!
-        let playID = moment.data.playID
-        if moment.data.setID == setID && !playIds.contains(playID) {
-          playIds.append(playID)
-        }
-      }
-      // If the user has 3 or more Cool Cat Moments
-      if playIds.length >= 3 {
-        earnedRoles.append(roleIds[11])
-      }
-      // If the user has all 30 unique Cool Cat Moments
-      if playIds.length == neededLength {
-        earnedRoles.append(roleIds[12])
-      }
-    }
-
     // NBATS
     if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
       let ids = collection.getIDs()
@@ -1064,7 +1021,7 @@ function Gaia() {
       let ids = collection.getIDs()
       // If the user has 3 or more NFLAD moments
       if ids.length >= 3 {
-        earnedRoles.append(roleIds[0])
+        earnedRoles.append(roleIds[9])
       }
     }
     
