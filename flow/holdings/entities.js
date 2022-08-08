@@ -23,7 +23,7 @@ function UFC() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function NFL() {
@@ -43,7 +43,7 @@ function NFL() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function EAD() {
@@ -73,7 +73,7 @@ function EAD() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Flunks() {
@@ -122,7 +122,7 @@ function Flunks() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function InceptionFlunks() {
@@ -146,7 +146,7 @@ function InceptionFlunks() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function IXLabs() {
@@ -183,7 +183,7 @@ function IXLabs() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Driverz() {
@@ -220,7 +220,7 @@ function Driverz() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Genies() {
@@ -259,7 +259,7 @@ function Genies() {
 
     return earnedRoles;
   }
-  `
+  `;
 }
 
 function NFW() {
@@ -418,7 +418,7 @@ function NFW() {
 
     return earnedRoles
   } 
-  `
+  `;
 }
 
 function WIT() {
@@ -475,7 +475,7 @@ function WIT() {
 
     return earnedRoles
   } 
-  `
+  `;
 }
 
 function Flovatar() {
@@ -621,7 +621,7 @@ function Flovatar() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function SNKRHUD() {
@@ -645,7 +645,7 @@ function SNKRHUD() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function TheFabricant() {
@@ -681,7 +681,7 @@ function TheFabricant() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Bl0x() {
@@ -727,7 +727,7 @@ function Bl0x() {
 
     return earnedRoles
   }
-  `
+  `;
 }
 
 function Flowscore() {
@@ -753,7 +753,7 @@ function Flowscore() {
       }
     }
   }
-  `
+  `;
 }
 
 function MotoGP() {
@@ -771,7 +771,7 @@ function MotoGP() {
       }
     }
   }
-  `
+  `;
 }
 
 function CNN() {
@@ -804,7 +804,7 @@ function CNN() {
     }
     return earnedRoles
   }
-  `
+  `;
 }
 
 function TSE() {
@@ -836,7 +836,72 @@ function TSE() {
 
     return earnedRoles
   }
-  `
+  `;
+}
+
+function Momentables() {
+  return `
+  import Momentables from 0x9d21537544d9123d
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = [];
+    var cryptoPharoahCount: UInt64 = 0;
+    var pharoahCatsCount: UInt64 = 0;
+
+    let collection = getAccount(user).getCapability(Momentables.CollectionPublicPath).borrow<&{Momentables.MomentablesCollectionPublic}>()!;
+
+    for id in collection.getIDs() {
+        let item = collection.borrowMomentables(id: id)
+        let momentableCollectionDetails = item!.getMomentableCollectionDetails();
+
+        if(momentableCollectionDetails["Collection Name"]!=nil){
+            let name = momentableCollectionDetails["Collection Name"]!;
+            if(name == "Crypto Pharaohs"){
+                cryptoPharoahCount = cryptoPharoahCount + 1;
+            }else if(name == "Pharaoh Cats"){
+                pharoahCatsCount = pharoahCatsCount + 1;
+            }
+            
+        }else if(momentableCollectionDetails["name"]!=nil){
+            let name = momentableCollectionDetails["name"]!;
+            if(name == "Crypto Pharaohs"){
+                cryptoPharoahCount = cryptoPharoahCount + 1;
+            }else if(name == "Pharaoh Cats"){
+                pharoahCatsCount = pharoahCatsCount + 1;
+            }
+        }
+        else{
+            earnedRoles.append(roleIds[0]);
+        }
+         
+     }
+
+    // Crypto Pharaohs Roles
+    if (cryptoPharoahCount>0 && cryptoPharoahCount < 3){
+        earnedRoles.append(roleIds[0]);
+    }else if(cryptoPharoahCount>=3 && cryptoPharoahCount < 6){
+        earnedRoles.append(roleIds[1]);
+    }else if(cryptoPharoahCount>=6 && cryptoPharoahCount < 9){
+        earnedRoles.append(roleIds[2]);
+    }else if(cryptoPharoahCount>=9){
+        earnedRoles.append(roleIds[3]);
+    }
+
+    // Pharaoh Cats Roles
+
+    if (pharoahCatsCount>0 && pharoahCatsCount < 3){
+        earnedRoles.append(roleIds[4]);
+    }else if(pharoahCatsCount>=3 && pharoahCatsCount < 6){
+        earnedRoles.append(roleIds[5]);
+    }else if(pharoahCatsCount>=6 && pharoahCatsCount < 9){
+        earnedRoles.append(roleIds[6]);
+    }else if(pharoahCatsCount>=9){
+        earnedRoles.append(roleIds[7]);
+    }
+    
+    return earnedRoles
+  }
+  `;
 }
 
 function Gaia() {
@@ -933,9 +998,10 @@ const holdingScripts = {
   MotoGP,
   CNN,
   TSE,
-  Gaia
-}
+  Gaia,
+  Momentables,
+};
 
 module.exports = {
-  holdingScripts
-}
+  holdingScripts,
+};
