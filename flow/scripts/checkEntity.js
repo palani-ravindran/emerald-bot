@@ -519,14 +519,22 @@ const Gaia = async (emeraldIds) => {
     };
 
   const roleIds = [
-    '1004841038550155364', // Driverz
-    '1004840997492113498', // Flunks
-    '1004840955742011442', // SNKRHUD,
-    '1004840033003524166', // Ballerz
-    '1004840871671386122', // MetaPanda
-    '1004840269562261535', // Barter Yard Club
-    '1004967835031842846', // Sneakerz
-  ];
+    '1004840033003524166', // 0. Ballerz
+    '1004967835031842846', // 1. Sneakerz
+    '1004841038550155364', // 2. Driverz
+    '1004840997492113498', // 3. Flunks
+    '1004840955742011442', // 4. SNKRHUD,
+    '1004840871671386122', // 5. MetaPanda
+    '1004840269562261535', // 6. Barter Yard Club
+    '1005330614582530130', // 7. UFC
+    '1005331566416908340', // 8. UFC Champ
+    '1005330768588963980', // 9. NFLAD
+    '1005330847760654347', // 10. NBATS
+    '1005335237234012170', // 11. Cool Cat
+    '1005326271951142972', // 12. NLL
+    '1005330475985940582', // 13. H&S
+    '1005339590711853108', // 14. Gaia Deity
+  ]
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
   return await executeScript(scriptCode, args);
