@@ -54,7 +54,7 @@ const verifyGroupButton = (interaction, creator, resolved, groupInfo, roleId, al
     )
     .setAuthor('Emerald City', 'https://i.imgur.com/YbmTuuW.png', 'https://discord.gg/emeraldcity')
     .setDescription('Click the `Verify` button below to get the ' + `<@&${roleId}>` + ' role with your EmeraldID.')
-    .setThumbnail(`https://ipfs.infura.io/ipfs/${groupInfo.image}`);
+    .setThumbnail(`https://cloudflare-ipfs.com/ipfs/${groupInfo.image}`);
 
   interaction.reply({ embeds: [embed], components: [row] }).catch(e => console.log(e));
 }
