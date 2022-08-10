@@ -493,21 +493,6 @@ const Momentables = async (emeraldIds) => {
   return await executeScript(scriptCode, args);
 };
 
-const executeScript = async (scriptCode, args) => {
-  try {
-    const result = await fcl
-      .send([fcl.script(scriptCode), fcl.args(args)])
-      .then(fcl.decode);
-    return [...new Set(result)]; // removes duplicates
-  } catch (e) {
-    console.log(e);
-    return {
-      error: true,
-      message: 'You do not meet the requirements for any of these roles.',
-    };
-  }
-};
-
 const Gaia = async (emeraldIds) => {
   const scriptCode = holdingScripts['Gaia'];
   const user = emeraldIds['dapper'];
@@ -538,6 +523,21 @@ const Gaia = async (emeraldIds) => {
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
   return await executeScript(scriptCode, args);
+};
+
+const executeScript = async (scriptCode, args) => {
+  try {
+    const result = await fcl
+      .send([fcl.script(scriptCode), fcl.args(args)])
+      .then(fcl.decode);
+    return [...new Set(result)]; // removes duplicates
+  } catch (e) {
+    console.log(e);
+    return {
+      error: true,
+      message: 'You do not meet the requirements for any of these roles.',
+    };
+  }
 };
 
 const entities = {
