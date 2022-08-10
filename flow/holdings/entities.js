@@ -978,52 +978,6 @@ function Gaia() {
         earnedRoles.append(roleIds[6])
       }
     }
-
-    // Gaia Deity
-    if let collection = getAccount(user).getCapability(Gaia.CollectionPublicPath).borrow<&{Gaia.CollectionPublic}>() {
-      // if assigned all 7 previous roles
-      if earnedRoles.length >= 7 {
-        earnedRoles.append(roleIds[14])
-      }
-    }
-
-    // UFC
-    if let collection = getAccount(user).getCapability(UFC_NFT.CollectionPublicPath).borrow<&UFC_NFT.Collection{UFC_NFT.UFC_NFTCollectionPublic}>() {
-      let ids = collection.getIDs()
-
-      // has 3 or more UFC moments
-      if ids.length >= 3 {
-        earnedRoles.append(roleIds[7])
-      }
-
-      // has champion moment
-      for id in ids {
-        let moment = collection.borrowUFC_NFT(id: id)!
-        let metadata = UFC_NFT.getSetMetadata(setId: moment.setId)!
-        if (metadata["TIER"]?.toLower() == "champion") {
-          earnedRoles.append(roleIds[8])
-          break
-        }
-      }
-    }
-
-    // NBATS
-    if let collection = getAccount(account).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
-      let ids = collection.getIDs()
-      // If the user has 3 or more NBATS moments
-      if ids.length >= 3 {
-        earnedRoles.append(roleIds[10])
-      }
-    }
-
-    // NFLAD
-    if let collection = getAccount(user).getCapability(AllDay.CollectionPublicPath).borrow<&AllDay.Collection{AllDay.MomentNFTCollectionPublic}>() {
-      let ids = collection.getIDs()
-      // If the user has 3 or more NFLAD moments
-      if ids.length >= 3 {
-        earnedRoles.append(roleIds[9])
-      }
-    }
     
     return earnedRoles
   } 
