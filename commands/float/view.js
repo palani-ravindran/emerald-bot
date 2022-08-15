@@ -25,7 +25,7 @@ const postFloat = async (interaction, float) => {
         },
         description: `${float.eventDescription}`,
         thumbnail: {
-            url: `https://ipfs.infura.io/ipfs/${float.eventImage}`,
+            url: `https://cloudflare-ipfs.com/ipfs/${float.eventImage}`,
         },
         fields: [
             {

@@ -474,7 +474,7 @@ const Momentables = async (emeraldIds) => {
     return {
       error: true,
       message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper',
+        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
     };
 
   const roleIds = [
@@ -486,6 +486,29 @@ const Momentables = async (emeraldIds) => {
     '1002469021540679680', // Pharaoh Cats Merchant Role (3+ packs)
     '1002469878277603378', // Pharaoh Cats Minister Role (6+ packs)
     '1002470211057897592', // Pharaoh Cats Royal Role (9+ packs)
+  ];
+
+  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
+
+  return await executeScript(scriptCode, args);
+};
+
+const ABD = async (emeraldIds) => {
+  const scriptCode = holdingScripts['ABD'];
+  const user = emeraldIds['blocto'];
+  if (!user)
+    return {
+      error: true,
+      message:
+        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
+    };
+
+  const roleIds = [
+    '969480231817732136', // Any ID
+    '969480569673109534', // ABD Legendary
+    '1007408035293044868', // ABD Refractor
+    '1000561174988996678', // ABD 69
+    '1000561465750728743', // ABD 420
   ];
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
@@ -561,6 +584,7 @@ const entities = {
   TSE,
   Gaia,
   Momentables,
+  ABD
 };
 
 module.exports = {
