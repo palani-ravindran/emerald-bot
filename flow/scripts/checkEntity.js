@@ -474,7 +474,7 @@ const Momentables = async (emeraldIds) => {
     return {
       error: true,
       message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/dapper',
+        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
     };
 
   const roleIds = [
@@ -493,19 +493,27 @@ const Momentables = async (emeraldIds) => {
   return await executeScript(scriptCode, args);
 };
 
-const executeScript = async (scriptCode, args) => {
-  try {
-    const result = await fcl
-      .send([fcl.script(scriptCode), fcl.args(args)])
-      .then(fcl.decode);
-    return [...new Set(result)]; // removes duplicates
-  } catch (e) {
-    console.log(e);
+const ABD = async (emeraldIds) => {
+  const scriptCode = holdingScripts['ABD'];
+  const user = emeraldIds['blocto'];
+  if (!user)
     return {
       error: true,
-      message: 'You do not meet the requirements for any of these roles.',
+      message:
+        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
     };
-  }
+
+  const roleIds = [
+    '969480231817732136', // Any ID
+    '969480569673109534', // ABD Legendary
+    '1007408035293044868', // ABD Refractor
+    '1000561174988996678', // ABD 69
+    '1000561465750728743', // ABD 420
+  ];
+
+  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
+
+  return await executeScript(scriptCode, args);
 };
 
 const Gaia = async (emeraldIds) => {
@@ -538,6 +546,21 @@ const Gaia = async (emeraldIds) => {
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
   return await executeScript(scriptCode, args);
+};
+
+const executeScript = async (scriptCode, args) => {
+  try {
+    const result = await fcl
+      .send([fcl.script(scriptCode), fcl.args(args)])
+      .then(fcl.decode);
+    return [...new Set(result)]; // removes duplicates
+  } catch (e) {
+    console.log(e);
+    return {
+      error: true,
+      message: 'You do not meet the requirements for any of these roles.',
+    };
+  }
 };
 
 const entities = {
