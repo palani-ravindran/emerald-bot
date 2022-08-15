@@ -584,6 +584,7 @@ const entities = {
   TSE,
   Gaia,
   Momentables,
+  ABD
 };
 
 module.exports = {
