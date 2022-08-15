@@ -1038,7 +1038,7 @@ function ABD() {
     var earnedRoles: [String] = []
 
     
-    if let collection = getAccount(user).getCapability(/public/MomentCollection).borrow<&{ABD.MomentCollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(/public/ABDMomentCollection).borrow<&{ABD.MomentCollectionPublic}>() {
       let ids = collection.getIDs()
 
       if ids.length > 0 {
