@@ -978,6 +978,31 @@ function Gaia() {
         earnedRoles.append(roleIds[6])
       }
     }
+
+    // Cool Cats
+    if let collection = getAccount(user).getCapability(/public/MomentCollection).borrow<&{TopShot.MomentCollectionPublic}>() {
+      let ids = collection.getIDs()
+      var answer: UInt64 = 0
+      var coveredPlays: [UInt32] = []
+      for id in ids {
+        let moment = collection.borrowMoment(id: id)!
+        // If it is a cool cat
+        if moment.data.setID == 32 {
+          answer = answer + 1
+          if !coveredPlays.contains(moment.data.playID) {
+            coveredPlays.append(moment.data.playID)
+          }
+        }
+      }
+      // If the user has 3 or more Cool Cat Moments
+      if answer >= 3 {
+        earnedRoles.append(roleIds[11])
+      }
+      // If the user has all 30 unique Cool Cat Moments
+      if coveredPlays.length == 30 {
+        earnedRoles.append(roleIds[12])
+      }
+    }
     
     return earnedRoles
   } 
