@@ -41,6 +41,7 @@ async function toRemove(discordIds) {
       import EmeraldIdentity from 0xEmeraldIdentity
       import RaribleNFT from 0x01ab36aaf654a13e 
       import NonFungibleToken from 0x1d7e57aa55817448
+      import FlowverseSocks from 0xce4c02539d1fabe8
     
       pub fun main(discordIds: [String]): [String] {
         var toRemove: [String] = []
@@ -56,6 +57,11 @@ async function toRemove(discordIds) {
                   found = true
                   break
                 }
+              }
+            }
+            if let collection = getAccount(emeraldId).getCapability(FlowverseSocks.CollectionPublicPath).borrow<&FlowverseSocks.Collection{NonFungibleToken.CollectionPublic}>() {
+              if collection.getIDs().length > 0 {
+                found = true
               }
             }
           }
