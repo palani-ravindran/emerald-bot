@@ -12,8 +12,11 @@ const UFC = async (emeraldIds) => {
         'You need to create your Dapper EmeraldID at https://id.ecdao.org/dapper',
     };
 
-  // 1. 3+, 2. Champion
-  const roleIds = ['979898271281586180', '979886293091766302'];
+  const roleIds = [
+    '979898271281586180', // 3+
+    '979886293091766302', // Champions Club
+    '1009577677675577456', // 3 of Josh Emmett
+  ];
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
   return await executeScript(scriptCode, args);
