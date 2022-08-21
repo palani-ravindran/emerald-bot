@@ -25,7 +25,7 @@ const postFloat = async (interaction, float) => {
         },
         description: `${float.eventDescription}`,
         thumbnail: {
-            url: `https://cloudflare-ipfs.com/ipfs/${float.eventImage}`,
+            url: `https://nftstorage.link/ipfs/${float.eventImage}`,
         },
         fields: [
             {
