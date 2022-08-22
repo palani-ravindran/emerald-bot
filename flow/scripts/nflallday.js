@@ -77,26 +77,28 @@ const getMomentsInSet = async (account, setName) => {
 }
 
 const scriptCode2 = `
-import TopShot from 0x0b2a3299cc857e29
+// import AllDay from "./AllDay.cdc"
+import AllDay from 0xe4cf4bdc1751c65d
 
 pub fun main(account: Address, setName: String): Bool {
-  let setID = TopShot.getSetIDsByName(setName: setName)?.removeFirst()!
-  let neededLength = TopShot.getPlaysInSet(setID: setID)!.length
+  let setData: AllDay.SetData = AllDay.getSetDataByName(name: setName)
+  let setPlaysInEditions: [UInt64] = setData.setPlaysInEditions.keys
+  let neededLength = setPlaysInEditions.length
   
-  let collection = getAccount(account).getCapability(/public/MomentCollection)
-                      .borrow<&{TopShot.MomentCollectionPublic}>()
-                      ?? panic("GG")
+  let collection = getAccount(account).getCapability(AllDay.CollectionPublicPath)
+                      .borrow<&{AllDay.MomentNFTCollectionPublic}>()
+                      ?? panic("This account does not have an NFL All Day Collection set up.")
   
   let ids = collection.getIDs()
-  let playIds: [UInt32] = []
+  let editionIds: [UInt64] = []
   for id in ids {
-    let moment = collection.borrowMoment(id: id)!
-    let playID = moment.data.playID
-    if moment.data.setID == setID && !playIds.contains(playID) {
-      playIds.append(playID)
+    let moment = collection.borrowMomentNFT(id: id)!
+    let editionID = moment.editionID
+    if setPlaysInEditions.contains(editionID) && !editionIds.contains(editionID) {
+      editionIds.append(editionID)
     }
   }
-  return playIds.length == neededLength
+  return editionIds.length == neededLength
 }
 `;
 
@@ -114,7 +116,7 @@ const ownsAllInSet = async (account, setName) => {
     return result || { error: true, message: `You do not have all the moments from the ${setName} set.` };
   } catch (e) {
     console.log(e);
-    return { error: true, message: 'The account does not have TopShots or the set doesnt exist.' };
+    return { error: true, message: 'The account does not have NFL All Day moments or the set doesnt exist.' };
   }
 }
 
