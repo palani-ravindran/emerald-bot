@@ -331,6 +331,25 @@ client.once('ready', () => {
                     }
                 ],
                 type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND
+            },
+            {
+                name: 'ownsallinset',
+                description: 'Setup a verifier to check if the user owns all the moments in a set',
+                options: [
+                    {
+                        name: 'setname',
+                        description: 'The name of the set (ex. Against the Clock)',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.STRING
+                    },
+                    {
+                        name: 'role',
+                        description: 'The role you wish to give',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.ROLE
+                    }
+                ],
+                type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND
             }
         ]
     });
