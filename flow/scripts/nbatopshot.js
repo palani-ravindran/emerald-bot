@@ -70,7 +70,7 @@ const getMomentsInSet = async (account, setName) => {
     return result;
   } catch (e) {
     console.log(e);
-    return { error: true, message: 'The account does not have TopShots.' };
+    return { error: true, message: 'The account does not have TopShots or the set doesnt exist.' };
   }
 }
 

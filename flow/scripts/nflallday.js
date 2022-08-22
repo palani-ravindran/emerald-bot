@@ -72,7 +72,7 @@ const getMomentsInSet = async (account, setName) => {
     return result;
   } catch (e) {
     console.log(e);
-    return { error: true, message: 'The account does not have NFL All Day Moments.' };
+    return { error: true, message: 'The account does not have NFL All Day moments or the set doesnt exist.' };
   }
 }
 
