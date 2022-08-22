@@ -310,6 +310,32 @@ client.once('ready', () => {
     });
 
     commands?.create({
+        name: 'nflallday',
+        description: 'A group of commands for NFL All Day.',
+        options: [
+            {
+                name: 'momentsinset',
+                description: 'View the moments a user has from a All Day set',
+                options: [
+                    {
+                        name: 'address',
+                        description: 'The users Dapper Wallet address',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.STRING
+                    },
+                    {
+                        name: 'setname',
+                        description: 'The name of the set (ex. Against the Clock)',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.STRING
+                    }
+                ],
+                type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND
+            }
+        ]
+    });
+
+    commands?.create({
         name: 'verify',
         description: 'A group of commands for verifying assets.',
         options: [
