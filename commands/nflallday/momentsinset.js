@@ -26,7 +26,7 @@ const postAllDay = async (interaction, allday) => {
   allday.moments.forEach(moment => {
     fields.push([
       {
-        name: `${moment.player}, Serial #${moment.serialNumber}`,
+        name: `${moment.player ? moment.player : moment.team}, Serial #${moment.serialNumber}`,
         value: `Type: ${moment.playType} | Team: ${moment.team}`,
         inline: false
       }
