@@ -18,9 +18,8 @@ function UFC() {
         let moment = collection.borrowUFC_NFT(id: id)!
         let setId: UInt32 = moment.setId
         let metadata = UFC_NFT.getSetMetadata(setId: setId)!
-        if (metadata["TIER"]?.toLower() == "champion") {
+        if (!earnedRoles.contains(roleIds[1]) && metadata["TIER"]?.toLower() == "champion") {
           earnedRoles.append(roleIds[1])
-          break
         }
         if setId == 199 {
           countForJoshEmmett = countForJoshEmmett + 1
