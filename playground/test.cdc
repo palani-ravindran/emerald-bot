@@ -1,9 +1,8 @@
 import UFC_NFT from 0x329feb3ab062d289
 
-  pub fun main(user: Address): [UInt32] {
+  pub fun main(user: Address): [String] {
     let roleIds: [String] = ["1", "2", "3"]
     var earnedRoles: [String] = []
-    let answer: [UInt32] = []
 
     // This checks for at least 3 UFC Moments
     if let collection = getAccount(user).getCapability(UFC_NFT.CollectionPublicPath).borrow<&UFC_NFT.Collection{UFC_NFT.UFC_NFTCollectionPublic}>() {
@@ -16,7 +15,6 @@ import UFC_NFT from 0x329feb3ab062d289
 
       for id in ids {
         let moment = collection.borrowUFC_NFT(id: id)!
-        answer.append(moment.setId)
         let setId: UInt32 = moment.setId
         let metadata = UFC_NFT.getSetMetadata(setId: setId)!
         if (!earnedRoles.contains(roleIds[1]) && metadata["TIER"]?.toLower() == "champion") {
@@ -32,5 +30,5 @@ import UFC_NFT from 0x329feb3ab062d289
       }
     }
 
-    return answer
+    return earnedRoles
   }
