@@ -441,6 +441,8 @@ const CNN = async (emeraldIds) => {
   const roleIds = [
     '953264416890171413', // Vault Collector
     '1002409710223376474', // First Collector
+    '1013087793150447697', // Purveyor of the Arts
+    '1013089761403093033' // Vault Mandela
   ];
 
   if (emeraldIds['dapper']) {
