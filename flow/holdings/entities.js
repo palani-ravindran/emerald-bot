@@ -808,7 +808,20 @@ function CNN() {
 
           // This assigns the First Collector role
           earnedRoles.append(roleIds[1])
-          break
+        }
+        
+        // This checks for the Purveyor of the Arts Coin
+        if (metadata["name"] == "Purveyor of the Arts Coin") {
+
+          // This assigns the Purveyor of the Arts role
+          earned.Roles.append(roleIds[2])
+        }
+
+        // This checks for the Mandela moment
+        if (metadata["name"] == "Nelson Mandela Released from Prison") {
+
+          // This assigns the Vault Mandela role
+          earned.Roles.append(roleIds[3])
         }
       }
     }
