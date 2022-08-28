@@ -814,14 +814,14 @@ function CNN() {
         if (metadata["name"] == "Purveyor of the Arts Coin") {
 
           // This assigns the Purveyor of the Arts role
-          earned.Roles.append(roleIds[2])
+          earnedRoles.append(roleIds[2])
         }
 
         // This checks for the Mandela moment
         if (metadata["name"] == "Nelson Mandela Released from Prison") {
 
           // This assigns the Vault Mandela role
-          earned.Roles.append(roleIds[3])
+          earnedRoles.append(roleIds[3])
         }
       }
     }
