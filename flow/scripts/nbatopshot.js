@@ -119,7 +119,7 @@ const ownsAllInSet = async (account, setName) => {
 const scriptCode3 = `
 import TopShot from 0x0b2a3299cc857e29
 
-pub fun main(account: Address, momentId: UInt64): Bool {
+pub fun main(account: Address, momentId: UInt32): Bool {
   let collection = getAccount(account).getCapability(/public/MomentCollection)
                       .borrow<&{TopShot.MomentCollectionPublic}>()
                       ?? panic("GG")
@@ -127,7 +127,7 @@ pub fun main(account: Address, momentId: UInt64): Bool {
   let ids = collection.getIDs()
   for id in ids {
     let moment = collection.borrowMoment(id: id)!
-    if moment.id == momentId {
+    if moment.data.playID == momentId {
       return true
     }
   }
@@ -142,7 +142,7 @@ const verifyMoment = async (account, momentId) => {
       fcl.script(scriptCode3),
       fcl.args([
         fcl.arg(account, t.Address),
-        fcl.arg(parseInt(momentId), t.UInt64)
+        fcl.arg(parseInt(momentId), t.UInt32)
       ])
     ]).then(fcl.decode);
 
