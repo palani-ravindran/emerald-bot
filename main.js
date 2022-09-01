@@ -305,6 +305,25 @@ client.once('ready', () => {
                     }
                 ],
                 type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND
+            },
+            {
+                name: 'verifymoment',
+                description: 'Setup a verifier to check if a user owns a specific moment',
+                options: [
+                    {
+                        name: 'momentid',
+                        description: 'The ID of the moment',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.NUMBER
+                    },
+                    {
+                        name: 'role',
+                        description: 'The role you wish to give',
+                        required: true,
+                        type: Constants.ApplicationCommandOptionTypes.ROLE
+                    }
+                ],
+                type: Constants.ApplicationCommandOptionTypes.SUB_COMMAND
             }
         ]
     });
