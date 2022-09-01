@@ -116,7 +116,45 @@ const ownsAllInSet = async (account, setName) => {
   }
 }
 
+const scriptCode3 = `
+import TopShot from 0x0b2a3299cc857e29
+
+pub fun main(account: Address, momentId: UInt64): Bool {
+  let collection = getAccount(account).getCapability(/public/MomentCollection)
+                      .borrow<&{TopShot.MomentCollectionPublic}>()
+                      ?? panic("GG")
+  
+  let ids = collection.getIDs()
+  for id in ids {
+    let moment = collection.borrowMoment(id: id)!
+    if moment.id == momentId {
+      return true
+    }
+  }
+  return false
+}
+`;
+
+const verifyMoment = async (account, momentId) => {
+  if (!account) return { error: true, message: 'You do not have a Dapper EmeraldID. Please get one at https://id.ecdao.org/.' };
+  try {
+    const result = await fcl.send([
+      fcl.script(scriptCode3),
+      fcl.args([
+        fcl.arg(account, t.Address),
+        fcl.arg(momentId, t.UInt64)
+      ])
+    ]).then(fcl.decode);
+
+    return result || { error: true, message: `You do not have an NBATopShot moment with ID #${momentId}.` };
+  } catch (e) {
+    console.log(e);
+    return { error: true, message: 'The account does not have TopShots or the set doesnt exist.' };
+  }
+}
+
 module.exports = {
   getMomentsInSet,
-  ownsAllInSet
+  ownsAllInSet,
+  verifyMoment
 }
