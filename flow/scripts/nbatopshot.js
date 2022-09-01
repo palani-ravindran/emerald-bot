@@ -149,7 +149,7 @@ const verifyMoment = async (account, momentId) => {
     return result || { error: true, message: `You do not have an NBATopShot moment with ID #${momentId}.` };
   } catch (e) {
     console.log(e);
-    return { error: true, message: 'The account does not have TopShots or the set doesnt exist.' };
+    return { error: true, message: 'This account does not have TopShot Collection or the moment id doesnt exist.' };
   }
 }
 
