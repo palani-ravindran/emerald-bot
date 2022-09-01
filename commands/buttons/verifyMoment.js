@@ -9,7 +9,7 @@ const execute = async (interaction, options, emeraldIds) => {
         interaction.member.roles.add(roleId).catch((e) => console.log(e));
         await interaction.editReply({ content: "You have been given the " + `<@&${roleId}>` + " role.", ephemeral: true });
     } else {
-        await interaction.editReply({ content: ownsAll.message, ephemeral: true });
+        await interaction.editReply({ content: owns.message, ephemeral: true });
     }
 }
 
