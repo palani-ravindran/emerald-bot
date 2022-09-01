@@ -142,7 +142,7 @@ const verifyMoment = async (account, momentId) => {
       fcl.script(scriptCode3),
       fcl.args([
         fcl.arg(account, t.Address),
-        fcl.arg(momentId, t.UInt64)
+        fcl.arg(parseInt(momentId), t.UInt64)
       ])
     ]).then(fcl.decode);
 
