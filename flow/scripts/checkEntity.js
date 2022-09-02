@@ -402,7 +402,7 @@ const Gaia = async (emeraldIds) => {
 
 async function checkAllWallets(scriptCode, roleIds, emeraldIds) {
   let answer = [];
-  for (const wallet of emeraldIds) {
+  for (const wallet in emeraldIds) {
     const roles = await executeScript(scriptCode, [
       fcl.arg(emeraldIds[wallet], t.Address),
       fcl.arg(roleIds, t.Array(t.String))
