@@ -11,8 +11,12 @@ const execute = async (interaction, options) => {
         await interaction.followUp({ ephemeral: true, content: 'This user does not have an EmeraldID.' })
         return;
     }
-    const obj = await resolveAddressObject(emeraldIds["blocto"]);
-    sendIdentification(interaction, emeraldIds, obj.resolvedNames.find, obj.resolvedNames.fn, discordId)
+    const bloctoObj = await resolveAddressObject(emeraldIds["blocto"]);
+    const dapperObj = await resolveAddressObject(emeraldIds["dapper"]);
+    const lilicoObj = await resolveAddressObject(emeraldIds["lilico"]);
+    const find = bloctoObj.resolvedNames.find || dapperObj.resolvedNames.find || lilicoObj.resolvedNames.find || "N/A";
+    const fn = bloctoObj.resolvedNames.fn || dapperObj.resolvedNames.fn || lilicoObj.resolvedNames.fn || "N/A";
+    sendIdentification(interaction, emeraldIds, find, fn, discordId)
 }
 
 const sendIdentification = async (interaction, emeraldIds, find, fn, discordId) => {
@@ -21,8 +25,9 @@ const sendIdentification = async (interaction, emeraldIds, find, fn, discordId) 
         .addFields(
             { name: 'Blocto Address', value: emeraldIds["blocto"] || "N/A", inline: true },
             { name: 'Dapper Address', value: emeraldIds["dapper"] || "N/A", inline: true },
-            { name: '.find', value: find || "N/A", inline: true },
-            { name: '.fn', value: fn || "N/A", inline: true },
+            { name: 'Lilico Address', value: emeraldIds["lilico"] || "N/A", inline: true },
+            { name: '.find', value: find, inline: true },
+            { name: '.fn', value: fn, inline: true },
             { name: 'Discord User', value: `<@${discordId}>`, inline: true },
             { name: 'EmeraldID', value: "✅", inline: true }
         )

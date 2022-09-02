@@ -5,7 +5,8 @@ const execute = async (interaction, options, emeraldIds) => {
     const roleId = options[1];
     const ownsCustomBlocto = await checkOwnsCustom(customName, emeraldIds["blocto"]);
     const ownsCustomDapper = await checkOwnsCustom(customName, emeraldIds["dapper"]);
-    if (ownsCustomBlocto === true || ownsCustomBlocto > 0 || ownsCustomDapper === true || ownsCustomDapper > 0) {
+    const ownsCustomLilico = await checkOwnsCustom(customName, emeraldIds["lilico"]);
+    if (ownsCustomBlocto === true || ownsCustomBlocto > 0 || ownsCustomDapper === true || ownsCustomDapper > 0 || ownsCustomLilico === true || ownsCustomLilico > 0) {
         interaction.member.roles.add(roleId).catch((e) => console.log(e));
         await interaction.editReply({ content: "You have been given the " + `<@&${roleId}>` + " role.", ephemeral: true });
     } else {

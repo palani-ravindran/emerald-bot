@@ -699,11 +699,13 @@ const emeraldid = () => {
   return `
   import EmeraldIdentity from 0xEmeraldIdentity
   import EmeraldIdentityDapper from 0xEmeraldIdentity
+  import EmeraldIdentityLilico from 0xEmeraldIdentity
 
   pub fun main(user: Address): Bool {
     let hasBloctoId = EmeraldIdentity.getDiscordFromAccount(account: user) != nil
     let hasDapperId = EmeraldIdentityDapper.getDiscordFromAccount(account: user) != nil
-    return hasBloctoId || hasDapperId
+    let hasLilicoId = EmeraldIdentityLilico.getDiscordFromAccount(account: user) != nil
+    return hasBloctoId || hasDapperId || hasLilicoId
   }
   `
 }

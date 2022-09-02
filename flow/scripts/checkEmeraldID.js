@@ -4,6 +4,7 @@ const t = require('@onflow/types');
 const scriptCode1 = `
 import EmeraldIdentity from 0xEmeraldIdentity
 import EmeraldIdentityDapper from 0xEmeraldIdentity
+import EmeraldIdentityLilico from 0xEmeraldIdentity
 
 pub fun main(discordID: String): {String: Address} {
   var ids: {String: Address} = {}
@@ -12,6 +13,9 @@ pub fun main(discordID: String): {String: Address} {
   }
   if let dapperId = EmeraldIdentityDapper.getAccountFromDiscord(discordID: discordID) {
     ids["dapper"] = dapperId
+  }
+  if let lilicoId = EmeraldIdentityLilico.getAccountFromDiscord(discordID: discordID) {
+    ids["lilico"] = lilicoId
   }
 
   return ids
@@ -39,6 +43,7 @@ const checkEmeraldID = async (discordID) => {
 const scriptCode2 = `
 import EmeraldIdentity from 0xEmeraldIdentity
 import EmeraldIdentityDapper from 0xEmeraldIdentity
+import EmeraldIdentityLilico from 0xEmeraldIdentity
 
 pub fun main(discordIDs: [String]): {String: Address} {
   let answer: {String: Address} = {}
@@ -47,6 +52,8 @@ pub fun main(discordIDs: [String]): {String: Address} {
       answer[discordID] = bloctoId
     } else if let dapperId = EmeraldIdentityDapper.getAccountFromDiscord(discordID: discordID) {
       answer[discordID] = dapperId
+    } else if let lilicoId = EmeraldIdentityLilico.getAccountFromDiscord(discordID: discordID) {
+      answer[discordID] = lilicoId
     }
   }
   return answer
@@ -72,6 +79,7 @@ const checkEmeraldIDBatch = async (discordIDs) => {
 const scriptCode3 = `
 import EmeraldIdentity from 0xEmeraldIdentity
 import EmeraldIdentityDapper from 0xEmeraldIdentity
+import EmeraldIdentityLilico from 0xEmeraldIdentity
 
 pub fun main(account: Address): String? {
   if let bloctoId = EmeraldIdentity.getDiscordFromAccount(account: account) {
@@ -79,6 +87,9 @@ pub fun main(account: Address): String? {
   }
   if let dapperId = EmeraldIdentityDapper.getDiscordFromAccount(account: account) {
     return dapperId
+  }
+  if let lilicoId = EmeraldIdentityLilico.getDiscordFromAccount(account: account) {
+    return lilicoId
   }
   return nil
 }

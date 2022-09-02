@@ -178,30 +178,7 @@ const WIT = async (emeraldIds) => {
     '988632169276641331', // Flunks
   ];
 
-  let dapper = [];
-  let blocto = [];
-  if (emeraldIds['dapper']) {
-    const dapperArgs = [
-      fcl.arg(emeraldIds['dapper'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    dapper = await executeScript(scriptCode, dapperArgs);
-  }
-  if (emeraldIds['blocto']) {
-    const bloctoArgs = [
-      fcl.arg(emeraldIds['blocto'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    blocto = await executeScript(scriptCode, bloctoArgs);
-  }
-
-  if (blocto.error) {
-    blocto = [];
-  }
-  if (dapper.error) {
-    dapper = [];
-  }
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const NFW = async (emeraldIds) => {
@@ -228,41 +205,11 @@ const NFW = async (emeraldIds) => {
     '983580514214633504', // Barter Yard Club
   ];
 
-  let dapper = [];
-  let blocto = [];
-  if (emeraldIds['dapper']) {
-    const dapperArgs = [
-      fcl.arg(emeraldIds['dapper'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    dapper = await executeScript(scriptCode, dapperArgs);
-  }
-  if (emeraldIds['blocto']) {
-    const bloctoArgs = [
-      fcl.arg(emeraldIds['blocto'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    blocto = await executeScript(scriptCode, bloctoArgs);
-  }
-
-  if (blocto.error) {
-    blocto = [];
-  }
-  if (dapper.error) {
-    dapper = [];
-  }
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const Flovatar = async (emeraldIds) => {
   const scriptCode = holdingScripts['Flovatar'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org',
-    };
 
   const roleIds = [
     '897968477715955742', // FlovatarOwner
@@ -286,9 +233,7 @@ const Flovatar = async (emeraldIds) => {
     '939690883102695434', // Gray
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const SNKRHUD = async (emeraldIds) => {
@@ -313,50 +258,16 @@ const SNKRHUD = async (emeraldIds) => {
 
 const Flowscore = async (emeraldIds) => {
   const scriptCode = holdingScripts['Flowscore'];
-  let dapper = [];
-  let blocto = [];
-
   const roleIds = [
     '991991999962042435', // SNKRHUD
     '991991999962042434', // Bl0x
   ];
 
-  if (emeraldIds['dapper']) {
-    const dapperArgs = [
-      fcl.arg(emeraldIds['dapper'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    dapper = await executeScript(scriptCode, dapperArgs);
-  }
-
-  if (emeraldIds['blocto']) {
-    const bloctoArgs = [
-      fcl.arg(emeraldIds['blocto'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    blocto = await executeScript(scriptCode, bloctoArgs);
-  }
-
-  if (blocto.error) {
-    blocto = [];
-  }
-
-  if (dapper.error) {
-    dapper = [];
-  }
-
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const Bl0x = async (emeraldIds) => {
   const scriptCode = holdingScripts['Bl0x'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
-    };
 
   const roleIds = [
     '993411748927385681', // 1
@@ -368,20 +279,11 @@ const Bl0x = async (emeraldIds) => {
     '996499378841849866', // Artifact trait
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const TheFabricant = async (emeraldIds) => {
   const scriptCode = holdingScripts['TheFabricant'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
-    };
 
   const roleIds = [
     '971043192889811014', // ItemNFT
@@ -390,28 +292,17 @@ const TheFabricant = async (emeraldIds) => {
     '989488592839643147', // TheFabricantAccessPass
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const MotoGP = async (emeraldIds) => {
   const scriptCode = holdingScripts['MotoGP'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
-    };
 
   const roleIds = [
     '997444026703827095', // 5 packs
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const TSE = async (emeraldIds) => {
@@ -435,8 +326,6 @@ const TSE = async (emeraldIds) => {
 
 const CNN = async (emeraldIds) => {
   const scriptCode = holdingScripts['CNN'];
-  let dapper = [];
-  let blocto = [];
 
   const roleIds = [
     '953264416890171413', // Vault Collector
@@ -445,42 +334,11 @@ const CNN = async (emeraldIds) => {
     '1013089761403093033' // Vault Mandela
   ];
 
-  if (emeraldIds['dapper']) {
-    const dapperArgs = [
-      fcl.arg(emeraldIds['dapper'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    dapper = await executeScript(scriptCode, dapperArgs);
-  }
-
-  if (emeraldIds['blocto']) {
-    const bloctoArgs = [
-      fcl.arg(emeraldIds['blocto'], t.Address),
-      fcl.arg(roleIds, t.Array(t.String)),
-    ];
-    blocto = await executeScript(scriptCode, bloctoArgs);
-  }
-
-  if (blocto.error) {
-    blocto = [];
-  }
-
-  if (dapper.error) {
-    dapper = [];
-  }
-
-  return dapper.concat(blocto.filter((item) => dapper.indexOf(item) < 0));
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const Momentables = async (emeraldIds) => {
   const scriptCode = holdingScripts['Momentables'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
-    };
 
   const roleIds = [
     '1002465648561102860', // Crypto Pharaohs Collector Role (1+ packs)
@@ -493,20 +351,11 @@ const Momentables = async (emeraldIds) => {
     '1002470211057897592', // Pharaoh Cats Royal Role (9+ packs)
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const ABD = async (emeraldIds) => {
   const scriptCode = holdingScripts['ABD'];
-  const user = emeraldIds['blocto'];
-  if (!user)
-    return {
-      error: true,
-      message:
-        'You need to create your Blocto EmeraldID at https://id.ecdao.org/blocto',
-    };
 
   const roleIds = [
     '969480231817732136', // Any ID
@@ -516,9 +365,7 @@ const ABD = async (emeraldIds) => {
     '1000561465750728743', // ABD 420
   ];
 
-  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
-
-  return await executeScript(scriptCode, args);
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
 const Gaia = async (emeraldIds) => {
@@ -552,6 +399,20 @@ const Gaia = async (emeraldIds) => {
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
   return await executeScript(scriptCode, args);
 };
+
+async function checkAllWallets(scriptCode, roleIds, emeraldIds) {
+  let answer = [];
+  for (const wallet of emeraldIds) {
+    const roles = await executeScript(scriptCode, [
+      fcl.arg(emeraldIds[wallet], t.Address),
+      fcl.arg(roleIds, t.Array(t.String))
+    ]);
+    if (!roles.error) {
+      answer = answer.concat(roles.filter((item) => answer.indexOf(item) < 0));
+    }
+  }
+  return answer;
+}
 
 const executeScript = async (scriptCode, args) => {
   try {
