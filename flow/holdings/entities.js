@@ -939,6 +939,7 @@ function Gaia() {
   import UFC_NFT from 0x329feb3ab062d289
   import TopShot from 0x0b2a3299cc857e29
   import AllDay from 0xe4cf4bdc1751c65d
+  import DimensionX from 0xe3ad6030cbaff1c2
   
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
@@ -1024,6 +1025,13 @@ function Gaia() {
       // If the user has all 30 unique Cool Cat Moments
       if coveredPlays.length == 30 {
         earnedRoles.append(roleIds[12])
+      }
+    }
+
+    // Dimension X
+    if let collection = getAccount(user).getCapability(DimensionX.CollectionPublicPath).borrow<&{DimensionX.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[15])
       }
     }
     

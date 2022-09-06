@@ -394,6 +394,7 @@ const Gaia = async (emeraldIds) => {
     '1005326271951142972', // 12. NLL
     '1005330475985940582', // 13. H&S
     '1005339590711853108', // 14. Gaia Deity
+    '1016772358947745893', // 15. Dimension X
   ]
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
