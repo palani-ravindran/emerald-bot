@@ -1089,10 +1089,10 @@ function Flow() {
     var earnedRoles: [String] = []
 
     if let floatCollection = getAccount(user).getCapability(FLOAT.FLOATCollectionPublicPath).borrow<&FLOAT.Collection{FLOAT.CollectionPublic}>() {
-      if floatCollection.ownedIdsFromEvent(eventId: "482557017").length > 0 {
+      if floatCollection.ownedIdsFromEvent(eventId: UInt64(482557017)).length > 0 {
         earnedRoles.append(roleIds[0])
       }
-      if floatCollection.ownedIdsFromEvent(eventId: "557504388").length > 0 {
+      if floatCollection.ownedIdsFromEvent(eventId: UInt64(557504388)).length > 0 {
         earnedRoles.append(roleIds[1])
       }
     }
