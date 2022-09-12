@@ -368,6 +368,17 @@ const ABD = async (emeraldIds) => {
   return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
+const Flow = async (emeraldIds) => {
+  const scriptCode = holdingScripts['Flow'];
+
+  const roleIds = [
+    '1016850181838352494',
+    '1018925238748205117'
+  ];
+
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
+};
+
 const Gaia = async (emeraldIds) => {
   const scriptCode = holdingScripts['Gaia'];
   const user = emeraldIds['dapper'];
@@ -450,7 +461,8 @@ const entities = {
   TSE,
   Gaia,
   Momentables,
-  ABD
+  ABD,
+  Flow
 };
 
 module.exports = {

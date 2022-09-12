@@ -1073,6 +1073,28 @@ function ABD() {
   `;
 }
 
+function Flow() {
+  return `
+  import FLOAT from 0xFLOAT
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+    if let floatCollection = getAccount(account).getCapability(FLOAT.FLOATCollectionPublicPath).borrow<&FLOAT.Collection{FLOAT.CollectionPublic}>() {
+      if floatCollection.ownedIdsFromEvent(eventId: "482557017").length > 0 {
+        earnedRoles.append(roleIds[0])
+      }
+      if floatCollection.ownedIdsFromEvent(eventId: "557504388").length > 0 {
+        earnedRoles.append(roleIds[1])
+      }
+    }
+
+    return earnedRoles
+  }
+  `;
+}
+
+
 const holdingScripts = {
   UFC,
   Flunks,
@@ -1094,7 +1116,8 @@ const holdingScripts = {
   TSE,
   Gaia,
   Momentables,
-  ABD
+  ABD,
+  Flow
 };
 
 module.exports = {
