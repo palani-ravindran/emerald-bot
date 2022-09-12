@@ -115,6 +115,26 @@ client.once('ready', () => {
                 description: 'The role you wish to give',
                 required: true,
                 type: Constants.ApplicationCommandOptionTypes.ROLE
+            },
+            {
+                name: 'wallet',
+                description: 'You can optionally choose to only return addresses of a certain wallet type',
+                required: false,
+                type: Constants.ApplicationCommandOptionTypes.STRING,
+                choices: [
+                    {
+                        name: "Dapper Wallet",
+                        value: "Dapper"
+                    },
+                    {
+                        name: "Blocto",
+                        value: "Blocto"
+                    },
+                    {
+                        name: "Lilico",
+                        value: "Lilico"
+                    }
+                ]
             }
         ]
     });

@@ -3,6 +3,7 @@ const { checkEmeraldIDBatch } = require('../flow/scripts/checkEmeraldID');
 
 const execute = async (interaction, options) => {
   if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
+    console.log(interaction);
     await interaction.deferReply({ ephemeral: true });
     const role = options.getRole('role');
     if (!role) {
