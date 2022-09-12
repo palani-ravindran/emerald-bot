@@ -1,22 +1,20 @@
 const { MessageAttachment, Permissions } = require('discord.js');
-const { checkEmeraldIDBatch } = require('../flow/scripts/checkEmeraldID');
+const { checkEmeraldIDBatch, checkEmeraldIDBatchSpecific } = require('../flow/scripts/checkEmeraldID');
 
 const execute = async (interaction, options) => {
   if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
-    console.log(options);
-    const walletType = options.getString('wallet');
-    console.log(walletType);
     await interaction.deferReply({ ephemeral: true });
     const role = options.getRole('role');
+    const walletType = options.getString('wallet');
     if (!role) {
       await interaction.editReply({ ephemeral: true, content: 'This role does not exist.' }).catch(e => console.log(e));
       return;
     }
-    sendInfo(interaction, role);
+    sendInfo(interaction, role, walletType);
   }
 }
 
-const sendInfo = async (interaction, role) => {
+const sendInfo = async (interaction, role, walletType) => {
   await interaction.guild.members.fetch();
 
   // Maps discordID => discord username
@@ -30,7 +28,7 @@ const sendInfo = async (interaction, role) => {
   // A list of discordIDs
   const userIDs = Object.keys(usersWithRole);
   // Maps discordID => EmeraldID
-  const answer = await checkEmeraldIDBatch(userIDs);
+  const answer = walletType ? await checkEmeraldIDBatchSpecific(userIDs, walletType) : await checkEmeraldIDBatch(userIDs);
   for (let i = 0; i < userIDs.length; i++) {
     let emeraldID = answer[userIDs[i]];
     let userTag = usersWithRole[userIDs[i]];
