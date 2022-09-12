@@ -1088,7 +1088,7 @@ function Flow() {
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-    if let floatCollection = getAccount(account).getCapability(FLOAT.FLOATCollectionPublicPath).borrow<&FLOAT.Collection{FLOAT.CollectionPublic}>() {
+    if let floatCollection = getAccount(user).getCapability(FLOAT.FLOATCollectionPublicPath).borrow<&FLOAT.Collection{FLOAT.CollectionPublic}>() {
       if floatCollection.ownedIdsFromEvent(eventId: "482557017").length > 0 {
         earnedRoles.append(roleIds[0])
       }
