@@ -3,7 +3,9 @@ const { checkEmeraldIDBatch } = require('../flow/scripts/checkEmeraldID');
 
 const execute = async (interaction, options) => {
   if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD)) {
-    console.log(interaction);
+    console.log(options);
+    const walletType = options.getString('wallet');
+    console.log(walletType);
     await interaction.deferReply({ ephemeral: true });
     const role = options.getRole('role');
     if (!role) {
