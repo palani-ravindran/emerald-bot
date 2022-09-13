@@ -43,22 +43,12 @@ const sendInfo = async (interaction, role, walletType) => {
 const csvmaker = function (data) {
 
   // Empty array for storing the values
-  csvRows = [];
+  let csvRows = [];
 
-  // Headers is basically a keys of an
-  // object which is id, name, and
-  // profession
-  const headers = Object.keys(data);
-
-  // As for making csv format, headers
-  // must be separated by comma and
-  // pushing it into array
-  csvRows.push(headers.join(','));
-
-  // Pushing Object values into array
-  // with comma separation
-  const values = Object.values(data).join(',');
-  csvRows.push(values)
+  for (const discordName in data) {
+    const row = discordName + ',' + data[discordName];
+    csvRows.push(row);
+  }
 
   // Returning the array joining with new line
   return csvRows.join('\n')
