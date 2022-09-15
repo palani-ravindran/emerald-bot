@@ -72,12 +72,10 @@ const Flunks = async (emeraldIds) => {
         'You need to create your Dapper EmeraldID at https://id.ecdao.org',
     };
 
-  // 1. Holder, 2. Whale, 3. Jock, 4. Geek, 5. Prep, 6. Freak
+  // 1. Holder, 2. Whale, 3. Prep, 4. Freak
   const roleIds = [
     '961353472328994826',
     '958216670218965094',
-    '979841797608050688',
-    '979842660393185330',
     '979842799451140166',
     '979841981381480519',
   ];
