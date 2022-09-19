@@ -377,6 +377,27 @@ const Flow = async (emeraldIds) => {
   return await checkAllWallets(scriptCode, roleIds, emeraldIds);
 };
 
+const NFTDay = async (emeraldIds) => {
+  const scriptCode = holdingScripts['NFTDay'];
+
+  const roleIds = [
+    '1020878876152434748', // Barter Yard Club
+    '1020879008323346463', // Flovatar
+    //'1020879072160645244', // MFL- Metaverse Football League
+    '1020879138548101181', // Party Gooberz
+    '1020879181380329544', // Crypto Piggos
+    //'1020879244177444954', // Fright Club
+    //'1020879322053083249', // Dimension X
+    //'1020879367909425152', // Gamisodes- Inspector Gadget
+    //'1020879425945997443', // Bobblz / Flowscore
+    '1020879485568032868', // Crypto Pharaohs
+    '1020880284410990723', // .find 
+
+  ];
+
+  return await checkAllWallets(scriptCode, roleIds, emeraldIds);
+};
+
 const Gaia = async (emeraldIds) => {
   const scriptCode = holdingScripts['Gaia'];
   const user = emeraldIds['dapper'];
@@ -461,7 +482,8 @@ const entities = {
   Gaia,
   Momentables,
   ABD,
-  Flow
+  Flow,
+  NFTDay
 };
 
 module.exports = {

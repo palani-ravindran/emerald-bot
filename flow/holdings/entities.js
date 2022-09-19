@@ -1094,6 +1094,66 @@ function Flow() {
   `;
 }
 
+function NFTDay() {
+  return `
+  import NonFungibleToken from 0x1d7e57aa55817448
+  import FIND from 0x097bafa4e0b48eef
+  import GooberXContract from 0x34f2bf4a80bb0f69 
+  import CryptoPiggo from 0xd3df824bf81910a4
+  import Flovatar from 0x921ea449dffec68a
+  import Momentables from 0x9d21537544d9123d
+  import Gaia from 0x8b148183c28ff88f
+  import BarterYardClubWerewolf from 0x28abb9f291cadaf2
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+    // Barter Yard Club
+    if let collection = getAccount(user).getCapability(BarterYardClubWerewolf.CollectionPublicPath).borrow<&{NonFungibleToken.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[0])
+      }
+    } 
+
+    // Flovatar
+    if let collection = getAccount(user).getCapability(Flovatar.CollectionPublicPath).borrow<&{Flovatar.CollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[1])
+      }
+    } 
+
+    // GOOBz
+    if let collection = getAccount(user).getCapability(GooberXContract.CollectionPublicPath).borrow<&{GooberXContract.GooberCollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[2])
+      }
+    } 
+
+    // Piggos
+    if let collection = getAccount(user).getCapability(CryptoPiggo.CollectionPublicPath).borrow<&{CryptoPiggo.CryptoPiggoCollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[3])
+      }
+    } 
+
+    // Crypto Pharaohs
+    if let collection = getAccount(user).getCapability(Momentables.CollectionPublicPath).borrow<&{Momentables.MomentablesCollectionPublic}>() {
+      if collection.getIDs().length >= 1 {
+        earnedRoles.append(roleIds[4])
+      }
+    } 
+
+    // .find
+    let name = FIND.reverseLookup(user)
+    if name != nil {
+      earnedRoles.append(roleIds[5])
+    }
+
+    return earnedRoles
+  } 
+  `;
+}
+
 
 const holdingScripts = {
   UFC,
@@ -1117,7 +1177,8 @@ const holdingScripts = {
   Gaia,
   Momentables,
   ABD,
-  Flow
+  Flow,
+  NFTDay
 };
 
 module.exports = {
