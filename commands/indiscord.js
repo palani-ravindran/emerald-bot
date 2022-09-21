@@ -6,7 +6,9 @@ const execute = async (interaction, options) => {
     await interaction.guild.members.fetch();
     await interaction.deferReply({ ephemeral: true });
     const channel = options.getChannel('channel');
-    const membersInChannel = channel.members.map(member => member.id);
+    console.log(channel);
+    const fetched = await interaction.channels.fetch(channel.id);
+    const membersInChannel = fetched.members.map(member => member.id);
 
     sendInfo(interaction, membersInChannel);
   }
