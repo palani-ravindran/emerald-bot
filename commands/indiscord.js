@@ -7,10 +7,12 @@ const execute = async (interaction, options) => {
     await interaction.deferReply({ ephemeral: true });
     const channel = options.getChannel('channel');
     console.log(channel);
-    const fetched = await interaction.channels.fetch(channel.id);
-    const membersInChannel = fetched.members.map(member => member.id);
+    console.log('INTERACTION')
+    console.log(interaction);
+    //const fetched = await interaction.channels.fetch(channel.id);
+    //const membersInChannel = fetched.members.map(member => member.id);
 
-    sendInfo(interaction, membersInChannel);
+    //sendInfo(interaction, membersInChannel);
   }
 }
 
