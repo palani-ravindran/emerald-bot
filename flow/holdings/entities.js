@@ -114,20 +114,29 @@ function Flunks() {
 
 function InceptionFlunks() {
   return `
-  import Flunks from 0x807c3d470888cc48
+  import InceptionAvatar from 0x83ed64a1d4f3833f
+  import InceptionBlackBox from 0x83ed64a1d4f3833f
 
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-    if let collection = getAccount(user).getCapability(Flunks.CollectionPublicPath).borrow<&Flunks.Collection{Flunks.FlunksCollectionPublic}>() {
+    if let collection = getAccount(user).getCapability(InceptionAvatar.CollectionPublicPath).borrow<&InceptionAvatar.Collection{InceptionAvatar.InceptionAvatarCollectionPublic}>() {
       let ids = collection.getIDs()
 
-      // This checks for at least 8 Flunks
-      if ids.length >= 8 {
-        earnedRoles.append(roleIds[1])
-        earnedRoles.append(roleIds[2])
-      } else if ids.length >= 1 {
+      // This checks for at least 1
+      if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
+      } else if ids.length >= 10 {
+        earnedRoles.append(roleIds[1])
+      }
+    }
+
+    if let collection = getAccount(user).getCapability(InceptionBlackBox.CollectionPublicPath).borrow<&InceptionBlackBox.Collection{InceptionBlackBox.InceptionBlackBoxCollectionPublic}>() {
+      let ids = collection.getIDs()
+
+      // This checks for at least 1
+      if ids.length >= 1 {
+        earnedRoles.append(roleIds[2])
       }
     }
 

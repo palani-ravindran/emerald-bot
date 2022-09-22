@@ -94,9 +94,9 @@ const InceptionFlunks = async (emeraldIds) => {
 
   // 1. >= 1, 2. >= 8, 3. >= 8
   const roleIds = [
-    '945509809745182740',
-    '945509281267060807',
-    '930157852377636906',
+    '1021927068948238367',
+    '1021935963351564378',
+    '1021940230837780483',
   ];
 
   const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
