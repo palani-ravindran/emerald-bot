@@ -105,21 +105,6 @@ function Flunks() {
       if ids.length >= 8 {
         earnedRoles.append(roleIds[1])
       }
-
-      // Checks the Flunks Clique
-      for id in ids {
-        let flunk = collection.borrowFlunks(id: id)!
-        let clique = flunk.getNFTMetadata()["Clique"]!
-        if clique == "Prep" {
-          if !earnedRoles.contains(roleIds[4]) {
-            earnedRoles.append(roleIds[2])
-          }
-        } else if clique == "Freak" {
-          if !earnedRoles.contains(roleIds[5]) {
-            earnedRoles.append(roleIds[3])
-          }
-        }
-      }
     }
 
     return earnedRoles

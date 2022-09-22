@@ -1,15 +1,23 @@
-import TopShot from 0x0b2a3299cc857e29
+import FLOAT from "./FLOAT.cdc"
 
-pub fun main(account: Address): [UInt64] {  
-  let collection = getAccount(account).getCapability(/public/MomentCollection)
-                      .borrow<&{TopShot.MomentCollectionPublic}>()
-                      ?? panic("GG")
-  
-  let ids = collection.getIDs()
-  let answer: [UInt64] = []
-  for id in ids {
-    let moment = collection.borrowMoment(id: id)!
-    answer.append(id)
+  pub fun main(users: [Address], roleIds: [String]): {Address: [String]} {
+    let answer: {Address: [String]} = {}
+
+    for user in users {
+      var earnedRoles: [String] = []
+
+      if let floatCollection = getAccount(user).getCapability(FLOAT.FLOATCollectionPublicPath).borrow<&FLOAT.Collection{FLOAT.CollectionPublic}>() {
+        if floatCollection.ownedIdsFromEvent(eventId: UInt64(482557017)).length > 0 {
+          earnedRoles.append(roleIds[0])
+        }
+        if floatCollection.ownedIdsFromEvent(eventId: UInt64(557504388)).length > 0 {
+          earnedRoles.append(roleIds[1])
+        }
+
+      }
+      answer[user] = earnedRoles
+    }
+
+    return answer
   }
-  return answer
-}
+ 
