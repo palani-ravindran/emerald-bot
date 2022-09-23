@@ -112,7 +112,7 @@ function Flunks() {
   `;
 }
 
-function InceptionFlunks() {
+function InceptionAnimals() {
   return `
   import InceptionAvatar from 0x83ed64a1d4f3833f
   import InceptionBlackBox from 0x83ed64a1d4f3833f
@@ -126,7 +126,8 @@ function InceptionFlunks() {
       // This checks for at least 1
       if ids.length >= 1 {
         earnedRoles.append(roleIds[0])
-      } else if ids.length >= 10 {
+      } 
+      if ids.length >= 10 {
         earnedRoles.append(roleIds[1])
       }
     }
@@ -1159,7 +1160,7 @@ const holdingScripts = {
   NFW,
   EAD,
   WIT,
-  InceptionFlunks,
+  InceptionAnimals,
   Flovatar,
   SNKRHUD,
   Bl0x,

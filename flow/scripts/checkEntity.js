@@ -82,8 +82,8 @@ const Flunks = async (emeraldIds) => {
   return await executeScript(scriptCode, args);
 };
 
-const InceptionFlunks = async (emeraldIds) => {
-  const scriptCode = holdingScripts['InceptionFlunks'];
+const InceptionAnimals = async (emeraldIds) => {
+  const scriptCode = holdingScripts['InceptionAnimals'];
   const user = emeraldIds['dapper'];
   if (!user)
     return {
@@ -92,7 +92,6 @@ const InceptionFlunks = async (emeraldIds) => {
         'You need to create your Dapper EmeraldID at https://id.ecdao.org',
     };
 
-  // 1. >= 1, 2. >= 8, 3. >= 8
   const roleIds = [
     '1021927068948238367',
     '1021935963351564378',
@@ -468,7 +467,7 @@ const entities = {
   NFW,
   EAD,
   WIT,
-  InceptionFlunks,
+  InceptionAnimals,
   Flovatar,
   SNKRHUD,
   Bl0x,
