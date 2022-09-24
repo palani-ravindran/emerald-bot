@@ -1089,6 +1089,37 @@ function Flow() {
   `;
 }
 
+function Gamisodes() {
+  return `
+  import Gamisodes from 0x20187093790b9aef
+
+  pub fun main(user: Address, roleIds: [String]): [String] {
+    var earnedRoles: [String] = []
+
+    let truths: {Int: Bool} = 0
+    if let gamisodesCollection = getAccount(user).getCapability(Gamisodes.CollectionPublicPath).borrow<&Gamisodes.Collection{Gamisodes.GamisodesCollectionPublic}>() {
+      for id in gamisodesCollection.getIDs() {
+        if id >= 1 && id <= 10000 {
+          truths[0] = true
+        } else if id >= 10001 && id <= 15000 {
+          truths[1] = true
+        } else if id >= 15001 && id <= 17500 {
+          truths[2] = true
+        } else if id >= 17501 && id <= 56014 {
+          truths[3] = true
+        }
+      }
+    }
+
+    if truths.keys.length == 4 {
+      earnedRoles.append(roleIds[0])
+    }
+
+    return earnedRoles
+  }
+  `;
+}
+
 function NFTDay() {
   return `
   import NonFungibleToken from 0x1d7e57aa55817448
@@ -1173,7 +1204,8 @@ const holdingScripts = {
   Momentables,
   ABD,
   Flow,
-  NFTDay
+  NFTDay,
+  Gamisodes
 };
 
 module.exports = {

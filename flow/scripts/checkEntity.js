@@ -102,6 +102,24 @@ const InceptionAnimals = async (emeraldIds) => {
   return await executeScript(scriptCode, args);
 };
 
+const Gamisodes = async (emeraldIds) => {
+  const scriptCode = holdingScripts['Gamisodes'];
+  const user = emeraldIds['dapper'];
+  if (!user)
+    return {
+      error: true,
+      message:
+        'You need to create your Dapper EmeraldID at https://id.ecdao.org',
+    };
+
+  const roleIds = [
+    '1004435442814439444'
+  ];
+
+  const args = [fcl.arg(user, t.Address), fcl.arg(roleIds, t.Array(t.String))];
+  return await executeScript(scriptCode, args);
+};
+
 const IXLabs = async (emeraldIds) => {
   const scriptCode = holdingScripts['IXLabs'];
   const user = emeraldIds['dapper'];
@@ -480,7 +498,8 @@ const entities = {
   Momentables,
   ABD,
   Flow,
-  NFTDay
+  NFTDay,
+  Gamisodes
 };
 
 module.exports = {
