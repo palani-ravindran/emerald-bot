@@ -1096,7 +1096,7 @@ function Gamisodes() {
   pub fun main(user: Address, roleIds: [String]): [String] {
     var earnedRoles: [String] = []
 
-    let truths: {Int: Bool} = 0
+    let truths: {Int: Bool} = {}
     if let gamisodesCollection = getAccount(user).getCapability(Gamisodes.CollectionPublicPath).borrow<&Gamisodes.Collection{Gamisodes.GamisodesCollectionPublic}>() {
       for id in gamisodesCollection.getIDs() {
         if id >= 1 && id <= 10000 {
